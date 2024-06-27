@@ -58,8 +58,8 @@ Important to note, make sure the reactions you are changing are set to be 'T' in
 
 CHANGING NUCLEAR REACTION SOURCE / REFERENCES
 
-Important module that compute this can be refered to vital.F90.
-The module contains several subroutines:
+Important module that compute this can be refered to vital.F90. Information from Marco Pignatari, it is impossible to read source from only 1 source of file.
+The vital.F90 works with several subroutines:
 
 read_physics_input_data:
 This subroutine reads input data related to species and reactions from an input file. It also handles the conversion of half-life units and checks if the isotopes considered are valid.
@@ -73,7 +73,7 @@ This subroutine is a wrapper for calling vital_calculate_rates, which computes t
 vital_calculate_rates:
 This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables.
 
-Key Steps in Calculation
+Calculation:
 Hydrogen Burning:
 Computes rates for proton-proton chain and CNO cycle, including temperature-dependent and independent decays.
 
