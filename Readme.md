@@ -8,7 +8,7 @@ ininet              = 0
 i_nse               = 0
 nse_option          = 0
 nvcp                = 57 !number of vital species
-nrcp                = 110 !number of reactions
+nrcp                = 110 !number of reactions from VITAL.F90 (The rest from other reactions)
 nnn                 = 1107 !number of isotopes NNN_max = 5235
 tbetamin            = 0.5_r8
 index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 ='JINAC',3='JINAV
