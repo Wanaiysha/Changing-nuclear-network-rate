@@ -7,9 +7,9 @@ There are several options for changing this, and the choice depends on the type 
 ininet              = 0
 i_nse               = 0
 nse_option          = 0
-nvcp                = 57
-nrcp                = 110
-nnn                 = 1107
+nvcp                = 57 !number of vital species
+nrcp                = 110 !number of reactions
+nnn                 = 1107 !number of isotopes NNN_max = 5235
 tbetamin            = 0.5_r8
 index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 ='JINAC',3='JINAV
 jbj_mode            = 1 !1 = Oda rate, 2 = JBJ rate, 3 = Oda94+JBJ, 4 = JBJ everywhere
