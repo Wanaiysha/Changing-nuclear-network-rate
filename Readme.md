@@ -72,7 +72,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 
 
 
--CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90
+- CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90
 
 Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
 
