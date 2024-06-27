@@ -54,6 +54,8 @@ rate_factor(1) = 30
 rate_index(2) = 17 
 rate_factor(2) = 2
 ```
+Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
+
 CHANGING NUCLEAR REACTION SOURCE / REFERENCES
 
 Important module that compute this can be refered to vital.F90.
