@@ -11,7 +11,7 @@ nvcp                = 57
 nrcp                = 110
 nnn                 = 1107
 tbetamin            = 0.5_r8
-index_reaclib       = 2 !0 = "Basel" Reaclib, 1 = JINA Reaclib, 2 = "Pure" Reaclib(JINAR)
+index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 = reaclib_name ='JINAC',3='JINAV
 jbj_mode            = 1 !1 = Oda rate, 2 = JBJ rate, 3 = Oda94+JBJ, 4 = JBJ everywhere
 nkk_mode            = 1 !no merging with NKK04 rate 
 nse_min_t9          = 6._r8
@@ -57,15 +57,32 @@ rate_factor(2) = 2
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 
 CHANGING NUCLEAR REACTION SOURCE / REFERENCES
+Replacing JINA nuclear table can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently this is the default in the reaclib.F90. You can replace this by other table or simply add another case(4) .Be carefull with the arrays numbers with new table implementation and corresponds reaclib partition function files(winvn).
+         case(0)
+            reacfile = '../NPDATA/REACLIB/reaclib.nosmo'
+         case(1)
+            reacfile = '../NPDATA/REACLIB/20081109ReaclibV0.5'
+         case(2)
+            reacfile = '../NPDATA/REACLIB/20120510ReaclibV1.1'
+         case(3)
+            reacfile = '../NPDATA/REACLIB/results01111258'
 
-Important module that compute this can be refered to vital.F90. Information from Marco Pignatari, it is impossible to read source from only 1 source of file.
+
+
+
+
+Important module that compute this can be refered to vital.F90. Information from Marco Pignatari, it is impossible to read source from only 1 source of file.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings
 The vital.F90 works with several subroutines:
 
 read_physics_input_data:
 This subroutine reads input data related to species and reactions from an input file. It also handles the conversion of half-life units and checks if the isotopes considered are valid.
 
 vital_init:
-This subroutine initializes rate tables by reading data from external files. It sets up the necessary data for the computation of reaction rates, including reading tables for specific reactions.
+Default Reaction Input Files for c12ag and c12c12:
+```
+../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
+../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
+```
 
 vital_rates_derivs:
 This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
@@ -73,11 +90,7 @@ This subroutine is a wrapper for calling vital_calculate_rates, which computes t
 vital_calculate_rates:
 This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables.
 
-Default Reaction Input Files:
-```
-../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
-../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
-```
+
 Alternative sources for Ne22.Set true in vital.F90   
 ```
    logical:: ne22_michael = .false.
