@@ -1,5 +1,7 @@
 CHANGING NUCLEAR REACTION RATE
+
 (Modular2 version)
+
 There are several options for changing this, and the choice depends on the type of study being conducted. The most basic approach is to examine the physics_knobs.F90 file and identify the switches you can adjust. Below is the default list of settings from physics_knobs. You can modify them as needed and include these settings in your ppn_physics.input file:
 ```
 ininet              = 0
