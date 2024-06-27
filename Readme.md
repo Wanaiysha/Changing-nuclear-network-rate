@@ -75,10 +75,6 @@ This subroutine computes the actual reaction rates for various nuclear processes
 
 Default Reaction Input Files:
 ```
-../NPDATA/c12ag_jdb16.dat
-../NPDATA/12C+12Crate_new.tex
-../NPDATA/rate_ne22.dat
-../NPDATA/ag_lo12.dat
-../NPDATA/an_lo12.dat
-../NPDATA/ne22a_mw15.dat
+../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
+../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
