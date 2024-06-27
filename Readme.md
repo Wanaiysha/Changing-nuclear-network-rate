@@ -74,7 +74,7 @@ vital_calculate_rates:
 This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables.
 
 Default Reaction Input Files:
-``
+```
 ../NPDATA/c12ag_jdb16.dat
 ../NPDATA/12C+12Crate_new.tex
 ../NPDATA/rate_ne22.dat
