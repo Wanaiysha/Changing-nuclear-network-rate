@@ -58,7 +58,7 @@ Important to note, make sure the reactions you are changing are set to be 'T' in
 
 - CHANGING NUCLEAR REACTION SOURCES / REFERENCES 
 
-Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the arrays numbers with the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
+Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
          case(0)
             reacfile = '../NPDATA/REACLIB/reaclib.nosmo'
@@ -72,9 +72,10 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 
 
 
-CHANGING OTHER NUCLEAR REACTIONS
+-CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90
 
-Important module that compute this can be refered to vital.F90. Information from Marco Pignatari, it is impossible to read source from only 1 source of file.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings
+Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
+
 The vital.F90 works with several subroutines:
 
 read_physics_input_data:
@@ -94,10 +95,10 @@ vital_rates_derivs:
 This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
 
 vital_calculate_rates:
-This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables.
+This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 
 
-Alternative sources for Ne22.Set true in vital.F90   
+Alternative sources for Ne22 in the VITAL.F90. Change to set 'true' with the preference: 
 ```
    logical:: ne22_michael = .false.
    logical:: ne22_longland = .false.
