@@ -57,7 +57,8 @@ rate_factor(2) = 2
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 
 CHANGING NUCLEAR REACTION SOURCE / REFERENCES
-Replacing JINA nuclear table can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently this is the default in the reaclib.F90. You can replace this by other table or simply add another case(4) .Be carefull with the arrays numbers with new table implementation and corresponds reaclib partition function files(winvn).
+
+Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently this is the default in the reaclib.F90. You can replace this by other table or simply add another case(4) .Be carefull with the arrays numbers with new table implementation and corresponds reaclib partition function files(winvn).
          case(0)
             reacfile = '../NPDATA/REACLIB/reaclib.nosmo'
          case(1)
