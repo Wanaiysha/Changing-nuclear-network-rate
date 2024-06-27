@@ -11,7 +11,7 @@ nvcp                = 57
 nrcp                = 110
 nnn                 = 1107
 tbetamin            = 0.5_r8
-index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 = reaclib_name ='JINAC',3='JINAV
+index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 ='JINAC',3='JINAV
 jbj_mode            = 1 !1 = Oda rate, 2 = JBJ rate, 3 = Oda94+JBJ, 4 = JBJ everywhere
 nkk_mode            = 1 !no merging with NKK04 rate 
 nse_min_t9          = 6._r8
