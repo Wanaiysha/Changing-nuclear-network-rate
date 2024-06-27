@@ -78,9 +78,11 @@ Important module that compute this can be refered to vital.F90. Information from
 The vital.F90 works with several subroutines:
 
 read_physics_input_data:
+
 This subroutine reads input data related to species and reactions from an input file. It also handles the conversion of half-life units and checks if the isotopes considered are valid.
 
 vital_init:
+
 Default Reaction Input Files for c12ag and c12c12:
 ```
 ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
@@ -88,6 +90,7 @@ Default Reaction Input Files for c12ag and c12c12:
 ```
 
 vital_rates_derivs:
+
 This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
 
 vital_calculate_rates:
