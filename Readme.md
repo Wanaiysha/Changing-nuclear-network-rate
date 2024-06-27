@@ -56,7 +56,7 @@ rate_factor(2) = 2
 ```
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 
-CHANGING NUCLEAR REACTION SOURCE / REFERENCES
+CHANGING NUCLEAR REACTION SOURCES / REFERENCES
 
 Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the arrays numbers with new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
@@ -72,6 +72,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 
 
 
+CHANGING OTHER NUCLEAR REACTIONS
 
 Important module that compute this can be refered to vital.F90. Information from Marco Pignatari, it is impossible to read source from only 1 source of file.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings
 The vital.F90 works with several subroutines:
