@@ -98,7 +98,7 @@ vital_calculate_rates:
 This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 
 
-Alternative sources for Ne22 in the VITAL.F90. Change to set 'true' with the preference: 
+Alternative sources for Ne22 in the VITAL.F90. Change to 'true' with your preference or replace with your own file: 
 ```
    logical:: ne22_michael = .false.
    logical:: ne22_longland = .false.
