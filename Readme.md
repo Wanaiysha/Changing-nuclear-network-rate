@@ -45,3 +45,12 @@ rate_factor(1) = 30.0
 ```
 In this case example, 161 corresponds to the reaction 13C(p,γ).
 13C(p,γ) rate at all temperatures is multiplied by a factor of 30.
+
+In case you want to modify one more rate, let's say  you want to double the rate of the 14N(p,g) whose index in the network is 17, all you need would be the following:
+```
+rate_index(1) = 161 
+rate_factor(1) = 30
+     
+rate_index(2) = 17 
+rate_factor(2) = 2
+```
