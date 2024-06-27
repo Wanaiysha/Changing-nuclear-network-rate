@@ -78,3 +78,15 @@ Default Reaction Input Files:
 ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
+Alternative sources for Ne22.Set true in vital.F90   
+```
+   logical:: ne22_michael = .false.
+   logical:: ne22_longland = .false.
+   logical:: ne22_nd2015 = .false.
+   logical:: c12ag_jdb2016 = .false.
+corresponding file respectively:
+../NPDATA/rate_ne22.dat ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
+../NPDATA/ag_lo12.dat ! Longland et al., 2012
+../NPDATA/an_lo12.dat ! Longland et al., 2012
+../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
+```
