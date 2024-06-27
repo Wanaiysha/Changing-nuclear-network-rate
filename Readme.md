@@ -1,4 +1,4 @@
-CHANGING NUCLEAR REACTION RATE
+**CHANGING NUCLEAR REACTION RATE**
 
 (Modular2 version)
 
@@ -33,7 +33,7 @@ decay_time          = 1.e17 ! seconds
 kadonis_interp      = 3 ! 1 is linear, 3 is Akima
 do_neutrinos        = .false.
 ```
-MODIFYING REACTION RATE : EXAMPLE 
+- MODIFYING REACTION RATE : EXAMPLE 
 
 Consider the parameters rate_index and rate_factor  above. These are arrays whose sizes are determined by the num_rate_factors parameter, which is set by default to 10 in physics/source/physics_knobs.F90. 
 This setting allows for the modification of up to 10 rates simultaneously during a run. To alter more rates, you would need to adjust the num_rate_factors in physics_knobs.F90 and recompile the code.
@@ -56,9 +56,9 @@ rate_factor(2) = 2
 ```
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 
-CHANGING NUCLEAR REACTION SOURCES / REFERENCES
+- CHANGING NUCLEAR REACTION SOURCES / REFERENCES 
 
-Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the arrays numbers with new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
+Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the arrays numbers with the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
          case(0)
             reacfile = '../NPDATA/REACLIB/reaclib.nosmo'
