@@ -21,7 +21,7 @@ rho_nw_ini          = 1._r8
 use_cache           = .false.
 yps_nw_ini(:,:)     = ZERO
 detailed_balance    = .true.
-screen_option       = CHUGUNOV
+screen_option       = CHUGUNOV !'none', 'GRABOSKE' screening, 'CHUGUNOV' screening.
 weak_rates          = .true.
 strong_rates        = .true.
 rate_index(:)       = -1
@@ -54,3 +54,32 @@ rate_factor(1) = 30
 rate_index(2) = 17 
 rate_factor(2) = 2
 ```
+CHANGING NUCLEAR REACTION SOURCE / REFERENCES
+
+Important module that compute this can be refered to vital.F90.
+The module contains several subroutines:
+
+read_physics_input_data:
+This subroutine reads input data related to species and reactions from an input file. It also handles the conversion of half-life units and checks if the isotopes considered are valid.
+
+vital_init:
+This subroutine initializes rate tables by reading data from external files. It sets up the necessary data for the computation of reaction rates, including reading tables for specific reactions.
+
+vital_rates_derivs:
+This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
+
+vital_calculate_rates:
+This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables.
+
+Key Steps in Calculation
+Hydrogen Burning:
+Computes rates for proton-proton chain and CNO cycle, including temperature-dependent and independent decays.
+
+Helium Burning:
+Calculates rates for reactions like He4 + He4 -> Be8 and C12 + He4 -> O16.
+
+Carbon and Oxygen Burning:
+Includes calculations for C12 + C12, O16 + O16, and other heavy element reactions, using both analytical formulas and interpolated table values.
+
+Rate Adjustments:
+Applies modifications based on recent research data (e.g., Michael Wiescher, Longland, Talwar), ensuring up-to-date and accurate reaction rates.
