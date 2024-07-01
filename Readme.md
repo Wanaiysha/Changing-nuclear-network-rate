@@ -4,12 +4,12 @@
 
 There are several options for changing this, and the choice depends on the type of study being conducted. The most basic approach is to examine in the /physics/source/physics_knobs.F90 file and identify the switches you can adjust. Below is the default list of settings from physics_knobs. You can modify them as needed and include these settings in your ppn_physics.input file:
 ```
-ininet              = 0
+ininet              = 0 ! 1 = Display all available networks
 i_nse               = 0
 nse_option          = 0
 nvcp                = 57 !number of vital species
 nrcp                = 110 !number of reactions from VITAL.F90 (The rest from other reactions)
-nnn                 = 1107 !number of isotopes NNN_max = 5235
+nnn                 = 1107 !number of isotopes NNN_max = 5235 
 tbetamin            = 0.5_r8
 index_reaclib       = 2 !0 = 'BASEL', 1 ='JINAR',2 ='JINAC',3='JINAV
 jbj_mode            = 1 !1 = Oda rate, 2 = JBJ rate, 3 = Oda94+JBJ, 4 = JBJ everywhere
