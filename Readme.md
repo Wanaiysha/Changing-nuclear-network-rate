@@ -99,6 +99,7 @@ This subroutine computes the reaction rates for various nuclear processes, inclu
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
 **Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH SOURCE)**
+
 If there are two/three references used for a reaction, the latter one will be adopted.
 1. Hydrogen Burning
 
