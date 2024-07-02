@@ -74,7 +74,9 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
 Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
-(Note to Aisha : Maybe those special rates table can be updated too?)
+(Note to Aisha : 1. Maybe those special rates table can be updated too?
+
+2. 'nrcp' number must be consistence with the 'T' reactions?)
 
 The vital.F90 works with several subroutines:
 
