@@ -101,11 +101,14 @@ The compulsory reaction rates used in the provided code are encapsulated within 
 **Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)**
 If there are two/three references used for a reaction, the latter one will be adopted.
 1. Hydrogen Burning
+
    PP-CHAIN
+
    CNO Cycle
+
    Neon-Sodium and Magnesium-Aluminium Cycles (Champagne 1994)
-2. Helium Burning
-3. Reverse rates
+3. Helium Burning
+4. Reverse rates
 
 ** Table-interpolation Reaction Rates   
 4. **Carbon Burning**
