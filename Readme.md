@@ -95,77 +95,31 @@ vital_rates_derivs:
 This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
 
 vital_calculate_rates:
-This subroutine computes the actual reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
+This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
-### Compulsory Reaction Rates
+### Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)
+If there are two/three references used for a reaction, the latter one will be adopted.
 1. **Hydrogen Burning**
    - **PP-CHAIN**
-     - `H(P,E+NU) D` (v(1))
-     - `D(P,G) He3` (v(2))
-     - `HE3 (HE3,2P) HE4` (v(3))
-     - `HE4 (HE3,G) BE7` (v(4))
-     - `BE7 (E-,NU+G) LI7` (v(5))
-     - `LI7 (P,A) HE4` (v(6))
-     - `BE7 (P,G) B8` (v(7))
-     - `B8 (D+NU) 2 ALPHA` (v(8))
-     - `B8 (G,P) BE7` (v(9))
-
    - **CNO Cycle**
-     - `C12(P,G)N13` (v(14))
-     - `N13(G,P)C12` (v(73))
-     - `C13(P,G)N14` (v(15))
-     - `N14(P,G)O15` (v(17))
-     - `N15(P,A)C12` (v(18))
-     - `N15(P,G)O16` (v(19))
-     - `O16(P,G)F17` (v(20))
-     - `F17(G,P)O16` (v(74))
-     - `O17(P,A)N14` (v(21))
-     - `O17(P,G)F18` (v(22))
-     - `O18(P,A)N15` (v(23))
+   - **Neon-Sodium and Magnesium-Aluminium Cycles** (Champagne 1994)
+2. **Helium Burning** 
+3. **Reverse rates**
 
-   - **Neon-Sodium and Magnesium-Aluminium Cycles**
-     - `O18(P,G)F19` (v(24))
-     - `F19(P,A)O16` (v(25))
-     - `F19(P,G)NE20` (v(26))
-     - `NE20(P,G)NA21` (v(27))
-     - `NE21(P,G)NA22` (v(28))
-     - `NE22(P,G)NA23` (v(29))
-     - `NA23(P,G)MG24` (v(32))
-     - `NA23(P,A)NE20` (v(31))
-     - `MG24(P,G)AL25` (v(33))
-     - `MG25(P,G)AL26G` (v(34))
-     - `MG25(P,G)AL26*` (v(35))
-     - `MG26(P,G)AL27` (v(36))
-     - `AL26(P,G)SI27` (v(37))
-     - `AL27(P,A)MG24` (v(38))
-     - `AL27(P,G)SI28` (v(39))
-     - `SI28(P,G)P29` (v(40))
-     - `SI29(P,G)P30` (v(41))
-     - `SI30(P,G)P31` (v(42))
-
-2. **Helium Burning**
-   - `HE4(2A,G)C12` (v(43))
-   - `C12(A,G)O16` (v(44))
-   - `C13(A,N)O16` (v(45))
-
-3. **Carbon Burning**
-   - `C12(C12,A)NE20` (v(46))
-   - `C12(C12,P)NA23` (v(47))
-
-4. **Neon Burning**
-   - `NE20(A,G)MG24` (v(48))
-
-5. **Oxygen Burning**
-   - `O16(O16,G)SI32` (v(49))
+### Table-interpolation Reaction Rates   
+4. **Carbon Burning**
+   - `C12(C12,A)NE20` 
+   - `C12(C12,P)NA23` 
+5. **Neon Burning**
+   - `NE20(A,G)MG24` 
+6. **Oxygen Burning**
+   - `O16(O16,G)SI32`
 
 ### Alternative Switching
 - **PP-IV Chain**: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 - **C12-Alpha Reactions**: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
-- **Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. The logical flags `ne22_michael`, `ne22_longland`, and `ne22_nd2015` control these switches.
-
-Each of these rates is calculated or interpolated based on the temperature (`t9`) and density (`rho`), and the specific values are selected or computed based on the given reaction rate parameters in the corresponding files. The module ensures that these rates are only computed when necessary and are set to zero otherwise.
-
+- **Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 Alternative sources for Ne22 rates in the VITAL.F90. Change to 'true' with your preference or replace with your own file: 
 ```
    logical:: ne22_michael = .false.
@@ -178,3 +132,10 @@ corresponding file respectively:
 ../NPDATA/an_lo12.dat ! Longland et al., 2012
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
+
+- Custom ad-hoc rates
+This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
+to be applied to the code, not permanent additions or compilations.
+
+Look for subroutine N14TEST(t9, rateout) and modify accordingly.
+
