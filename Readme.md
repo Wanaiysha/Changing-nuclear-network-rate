@@ -71,10 +71,10 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 ```
 
 
+- CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-- CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90
-
-Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source.Special reactions that are hardwired are 3a,c12c12 and cO reactions. Other burnings can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
+Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
+(Note to Aisha : Maybe those special rates table can be updated too?)
 
 The vital.F90 works with several subroutines:
 
@@ -97,14 +97,15 @@ This subroutine is a wrapper for calling vital_calculate_rates, which computes t
 vital_calculate_rates:
 This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
-** Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)
+
+**Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)**
 If there are two/three references used for a reaction, the latter one will be adopted.
-1. **Hydrogen Burning**
-   - **PP-CHAIN**
-   - **CNO Cycle**
-   - **Neon-Sodium and Magnesium-Aluminium Cycles** (Champagne 1994)
-2. **Helium Burning** 
-3. **Reverse rates**
+1. Hydrogen Burning
+   PP-CHAIN
+   CNO Cycle
+   Neon-Sodium and Magnesium-Aluminium Cycles (Champagne 1994)
+2. Helium Burning
+3. Reverse rates
 
 ** Table-interpolation Reaction Rates   
 4. **Carbon Burning**
@@ -114,11 +115,10 @@ If there are two/three references used for a reaction, the latter one will be ad
    - `NE20(A,G)MG24` 
 6. **Oxygen Burning**
    - `O16(O16,G)SI32`
-
-** Alternative Switching
-1. PP-IV Chain**: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
-2. C12-Alpha Reactions**: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
-3. Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
+7. **Alternative Switching**
+- PP-IV Chain**: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
+- C12-Alpha Reactions**: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
+- Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 Alternative sources for Ne22 rates in the VITAL.F90. Change to 'true' with your preference or replace with your own file: 
 ```
    logical:: ne22_michael = .false.
@@ -134,7 +134,7 @@ corresponding file respectively:
 
 - Custom ad-hoc rates
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
-to be applied to the code, not permanent additions or compilations.
+to be applied to the code, not a permanent additions or compilations.
 
 Look for subroutine N14TEST(t9, rateout) and modify accordingly.
 
