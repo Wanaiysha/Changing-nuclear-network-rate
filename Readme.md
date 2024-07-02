@@ -1,4 +1,4 @@
-**CHANGING NUCLEAR REACTION RATE**
+### CHANGING NUCLEAR REACTION RATE**
 
 (Modular2 version)
 
@@ -97,8 +97,7 @@ This subroutine is a wrapper for calling vital_calculate_rates, which computes t
 vital_calculate_rates:
 This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
-
-# Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)
+** Formula-based Reaction Rates (MOSTLY FROM CF88,NACRE99 or JINA. REFER TO VITAL.F90 FOR EACH FORMULA SOURCED)
 If there are two/three references used for a reaction, the latter one will be adopted.
 1. **Hydrogen Burning**
    - **PP-CHAIN**
@@ -107,7 +106,7 @@ If there are two/three references used for a reaction, the latter one will be ad
 2. **Helium Burning** 
 3. **Reverse rates**
 
-### Table-interpolation Reaction Rates   
+** Table-interpolation Reaction Rates   
 4. **Carbon Burning**
    - `C12(C12,A)NE20` 
    - `C12(C12,P)NA23` 
@@ -116,7 +115,7 @@ If there are two/three references used for a reaction, the latter one will be ad
 6. **Oxygen Burning**
    - `O16(O16,G)SI32`
 
-# Alternative Switching
+** Alternative Switching
 1. PP-IV Chain**: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 2. C12-Alpha Reactions**: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
 3. Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
