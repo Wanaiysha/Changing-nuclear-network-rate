@@ -1,6 +1,18 @@
 ### CHANGING NUCLEAR REACTION RATE**
 
-(Modular2 version)
+(Version Modular2)
+Some basic idea of how physics module operated in the programme, one could refer how ppn_physics.F90 computes the nuclear network.
+![screenshot](screenshot.png)
+
+
+
+
+
+
+
+
+
+
 
 There are several options for changing this, and the choice depends on the type of study being conducted. The most basic approach is to examine in the /physics/source/physics_knobs.F90 file and identify the switches you can adjust. Below is the default list of settings from physics_knobs. You can modify them as needed and include these settings in your ppn_physics.input file:
 ```
@@ -73,7 +85,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90. (Some reactions are very outdated and could use some updates)
+Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates table can be updated too?
 
 2. 'nrcp' number must be consistence with the 'T' reactions?)
