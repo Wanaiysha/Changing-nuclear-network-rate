@@ -162,7 +162,11 @@ corresponding file respectively:
 ../NPDATA/an_lo12.dat ! Longland et al., 2012
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
+- CHANGING THE KADONIS REACTION RATES
 
+Refer to Kadonis.F90 and one could updates the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be carefull with the number of rows with the new table/data implementation. 
+
+  
 - CUSTOM AD-HOC CHANGES
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
 to be applied to the code, not a permanent additions or compilations.
