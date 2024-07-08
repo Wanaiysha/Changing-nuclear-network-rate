@@ -84,11 +84,12 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
          case(3)
             reacfile = '../NPDATA/REACLIB/results01111258' !updatedversion2.2
 ```
-note:Testing.Setting the file to read from results01111258.data produced an error: ' isotope not found in reaclib hash table4tl20 ' 
+note:Setting the file to read from results01111258.data produced an error: ' isotope not found in reaclib hash table4tl20 ' 
+note2:I tried replacing the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad flaoting points'.Need to check this.
 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
+1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates table can be updated too?
 
 2. 'nrcp' number must be consistence with the 'T' reactions?
@@ -169,7 +170,8 @@ corresponding file respectively:
 Refer to Kadonis.F90 and one could updates the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be carefull with the number of rows with the new table/data implementation. 
 
   
-- CUSTOM AD-HOC CHANGES
+- CUSTOM AD-HOC CHANGES 
+  
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
 to be applied to the code, not a permanent additions or compilations.
 
