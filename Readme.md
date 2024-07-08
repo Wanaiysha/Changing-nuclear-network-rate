@@ -2,7 +2,7 @@
 
 (Version Modular2)
 
-A brief idea how physics module operates nuclear calculations in the PPN, one could refer ppn_physics.F90 ; 
+A brief idea of how physics module operates the nuclear calculations in the PPN (Refer ppn_physics.F90) ; 
 ![ppn](ppnb.png)
 
 
