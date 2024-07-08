@@ -83,7 +83,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
          case(3)
             reacfile = '../NPDATA/REACLIB/results01111258' !updatedversion2.2
 ```
-
+Setting the file to read from results01111258.data produced an error: ' isotope not found in reaclib hash table4tl20 ' 
 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
