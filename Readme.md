@@ -81,7 +81,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
          case(2)
             reacfile = '../NPDATA/REACLIB/20120510ReaclibV1.1'
          case(3)
-            reacfile = '../NPDATA/REACLIB/results01111258'
+            reacfile = '../NPDATA/REACLIB/results01111258' !updatedversion2.2
 ```
 
 
