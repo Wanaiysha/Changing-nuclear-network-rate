@@ -122,7 +122,7 @@ If there are two/three references used for a reaction, the latter one will be ad
 
    CNO Cycle
 
-   Neon-Sodium and Magnesium-Aluminium Cycles (Champagne 1994)
+   Neon-Sodium and Magnesium-Aluminium (Champagne 1994)
 3. Helium Burning
 4. Reverse rates
 
