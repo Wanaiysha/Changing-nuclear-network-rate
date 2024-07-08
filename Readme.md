@@ -69,7 +69,8 @@ rate_factor(2) = 2
 ```
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 
-- CHANGING NUCLEAR REACTION SOURCES / REFERENCES 
+- CHANGING NUCLEAR REACTION SOURCES / REFERENCES
+  
 By default, nuclear reactions are sourced mainly from VITAL. To set reactions to read from specific JINA REACLIB Table. The reactions list in ppn_physic.input must be set to 'F' first.
 Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
