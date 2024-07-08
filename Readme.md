@@ -89,7 +89,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
 Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates table can be updated too?
 
-2. 'nrcp' number must be consistence with the 'T' reactions?)
+2. 'nrcp' number must be consistence with the 'T' reactions?
 
 The vital.F90 works with several subroutines:
 
@@ -128,16 +128,19 @@ If there are two/three references used for a reaction, the latter one will be ad
 
 ** Table-interpolation Reaction Rates   
 4. **Carbon Burning**
-* `C12(C12,A)NE20` 
-* `C12(C12,P)NA23` 
+`C12(C12,A)NE20` 
+`C12(C12,P)NA23` 
 5. **Neon Burning**
-* `NE20(A,G)MG24` 
+`NE20(A,G)MG24` 
 6. **Oxygen Burning**
-* `O16(O16,G)SI32`
+`O16(O16,G)SI32`
 7. **Alternative Switching**
-* PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
-* C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
-- Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
+ PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
+
+ C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
+
+Neon-Sodium and Magnesium-Aluminium Cycles**: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
+
 Alternative sources for Ne22 rates in the VITAL.F90. Change to 'true' with your preference or replace with your own file: 
 ```
    logical:: ne22_michael = .false.
