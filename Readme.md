@@ -85,7 +85,7 @@ Replacing nuclear table source can be done by setting the index_reaclib = '' in 
             reacfile = '../NPDATA/REACLIB/results01111258' !updatedversion2.2
 ```
 note:Setting the file to read from results01111258.data produced an error: ' isotope not found in reaclib hash table4tl20 ' 
-note2:I tried to replacr the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad flaoting points'.Need to check this.
+note2:I tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'.Need to check this.
 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
