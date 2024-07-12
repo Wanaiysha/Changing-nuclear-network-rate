@@ -70,9 +70,11 @@ rate_factor(2) = 2
 Important to note, make sure the reactions you are changing are set to be 'T' in the ppn_physics.input, else, the changes will take no effects.
 Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_physics.input will implement the NACRE analytic formula; otherwise, the code defaults to NACRE tables. A quick CNO-burning simulation comparing both options shows approximately a 2% difference in the final 13C abundance. If you prefer to use CF88, you must comment out the NACRE option in Vital.F90 and recompile the code before running a new simulation. This change will result in a significant difference in the final 13C abundance, around 20%, due to the use of a completely different rate source, not just a variation in rate interpolation. It's important to note that altering the label/reference in ppn_physics.input directly has no effect, as confirmed by him testing this.
 
+*Hence if one prefers the table instead of analytic formula, the reactions list in ppn_physic.input must be set to 'F' first*
+
 - CHANGING NUCLEAR REACTION SOURCES / REFERENCES
   
-By default, nuclear reactions are sourced mainly from VITAL. To set reactions to read from specific JINA REACLIB Table. The reactions list in ppn_physic.input must be set to 'F' first.
+To set reactions to read from specific REACLIB Table.
 Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
          case(0)
@@ -125,7 +127,7 @@ If there are two/three references used for a reaction, the latter one will be ad
 
    CNO Cycle
 
-   Neon-Sodium and Magnesium-Aluminium (Champagne 1994)
+   Neon-Sodium and Magnesium-Aluminium (Champagne 1994.MOstly outdated!)
 3. Helium Burning
 4. Reverse rates
 
