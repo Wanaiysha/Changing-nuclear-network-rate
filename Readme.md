@@ -46,7 +46,7 @@ decay_time          = 1.e17 ! seconds
 kadonis_interp      = 3 ! 1 is linear, 3 is Akima
 do_neutrinos        = .false.
 ```
-- MODIFYING REACTION RATE : EXAMPLE 
+- MODIFYING REACTION RATE : SIMPLE WAY 
 
 Consider the parameters rate_index and rate_factor  above. These are arrays whose sizes are determined by the num_rate_factors parameter, which is set by default to 10 in physics/source/physics_knobs.F90. 
 This setting allows for the modification of up to 10 rates simultaneously during a run. To alter more rates, you would need to adjust the num_rate_factors in physics_knobs.F90 and recompile the code.
@@ -74,6 +74,15 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 
 - CHANGING NUCLEAR REACTION SOURCES / REFERENCES
   
+  How code setup the network. By default
+  1. Charged particle reactions computed by analytic formula in VITAL module, whenever T is switched to F, they interpolated via NACRE/REACLIB TABLE.
+  3. Special reactions interpolated from tables (C12-C12,C-O,O16-O16) in VITAL module.
+  4. Neutron capture (n,g) interpolated from table in KADONIS module, whenever not available, from REACLIB table.
+  5. Reverse reaction from REVERSE module.
+  6. Proton Capture (p,g), from REACLIB and ILIADIS
+  7. Beta Decay from fuller & fowler 1985 (light isotopes, up to Fe)
+
+* REACLIB*
 To set reactions to read from specific REACLIB Table.
 Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
