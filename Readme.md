@@ -80,7 +80,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   4. Neutron capture (n,g) interpolated from table in KADONIS module, whenever not available, from REACLIB table.
   5. Reverse reaction from REVERSE module.
   6. Proton Capture (p,g), from REACLIB and ILIADIS
-  7. Beta Decay from fuller & fowler 1985 (light isotopes, up to Fe)
+  7. Beta Decay from fuller & fowler 1985 (light isotopes, up to Fe) and ODA94 
 
 * REACLIB*
 To set reactions to read from specific REACLIB Table.
