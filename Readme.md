@@ -75,7 +75,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 - CHANGING NUCLEAR REACTION SOURCES / REFERENCES
   
   How code setup the network. By default
-  1. Charged particle reactions computed by analytic formula in VITAL module, whenever T is switched to F, they interpolated via NACRE/REACLIB TABLE.
+  1. Charged particle reactions computed by analytic formula in VITAL module, whenever T is switched to F,it will be interpolated via NACRE/REACLIB TABLE.
   3. Special reactions interpolated from tables (C12-C12,C-O,Triple-Alpha) in VITAL module.
   4. Neutron capture (n,g) interpolated from table in KADONIS module, whenever not available, from REACLIB table.
   5. Reverse reaction from REVERSE module.
