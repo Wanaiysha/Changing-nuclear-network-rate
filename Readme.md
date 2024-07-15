@@ -103,7 +103,7 @@ note2:I tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended w
 1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates table can be updated too?
 
-2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simple total number of charged particles.
+2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles.
 
 The vital.F90 works with several subroutines:
 
