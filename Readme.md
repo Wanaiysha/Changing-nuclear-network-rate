@@ -85,7 +85,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 
 * REACLIB* 
 
-To set reactions to read from specific REACLIB database.
+To set reaclib module to read from a specific REACLIB database.
 Switching nuclear datasource can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
          case(0)
