@@ -112,13 +112,6 @@ read_physics_input_data:
 
 This subroutine reads input data related to species and reactions from an input file. It also handles the conversion of half-life units and checks if the isotopes considered are valid.
 
-vital_init:
-
-Default Rates Files for c12c12:
-```
-../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
-```
-
 vital_rates_derivs:
 
 This subroutine is a wrapper for calling vital_calculate_rates, which computes the rates of nuclear reactions based on temperature and density inputs.
@@ -141,7 +134,10 @@ If there are two/three references used for a reaction, the latter one will be ad
 4. Reverse rates
 
 ** Table-interpolation Reaction Rates **  
-
+Default Rates Files for c12c12:
+```
+../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
+```
 4. **Carbon Burning**
 
 `C12(C12,A)NE20` 
