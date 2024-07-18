@@ -75,7 +75,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 - CHANGING NUCLEAR REACTION SOURCES / REFERENCES
   
   How code setup the network. By default
-  1. Charged particle reactions computed by analytic formula in VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', NACRE (netgen module) or REACLIB (reaclib module) is being adopted.
+  1. Charged particle reactions computed by analytic formula in VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', NACRE or Illiadis tables (netgen module) is being adopted.
   3. Special reactions interpolated from tables (C12-C12,O16-16,Triple-Alpha) in VITAL module.
   4. Reaction C12(a,g)O16 is based on analytic formula from Kunz et al 2002 but there is an option for Deboer et al 2016 (Must set in vital to be true first)
   5. Neutron capture (n,g) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when reaction is not available.
@@ -134,9 +134,12 @@ If there are two/three references used for a reaction, the latter one will be ad
 2. Helium Burning
 3. Reverse rates
 
+4. **Neon Burning**
+   
+`NE20(A,G)MG24` 
 **Table-interpolation Reaction Rates ** 
 
-4. **Carbon Burning**
+5. **Carbon Burning**
 
 `C12(C12,A)NE20` 
 
@@ -146,11 +149,6 @@ Default Rates Files for c12c12:
 ```
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
-
-5. **Neon Burning**
-   
-`NE20(A,G)MG24` 
-
 
 7. **Oxygen Burning**
    
