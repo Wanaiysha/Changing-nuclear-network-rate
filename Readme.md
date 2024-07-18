@@ -104,7 +104,7 @@ note2:I tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended w
 1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates table can be updated too?
 
-2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles.
+2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles reactions.
 
 The vital.F90 works with several subroutines:
 
@@ -161,7 +161,7 @@ If there are two/three references used for a reaction, the latter one will be ad
     
  PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 
- C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` and `kunz`.
+ C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch`,`kunz`(default) and 'DeBoer'.DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.'
 
 Neon22 reactions: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 
@@ -170,7 +170,7 @@ Alternative sources for Ne22 rates in the VITAL.F90. Change to 'true' with your 
    logical:: ne22_michael = .false.
    logical:: ne22_longland = .false.
    logical:: ne22_nd2015 = .false.
-   logical:: c12ag_jdb2016 = .false.
+   
 corresponding file respectively:
 ../NPDATA/rate_ne22.dat ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ../NPDATA/ag_lo12.dat ! Longland et al., 2012
