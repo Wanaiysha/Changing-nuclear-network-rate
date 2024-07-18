@@ -114,9 +114,8 @@ This subroutine reads input data related to species and reactions from an input 
 
 vital_init:
 
-Default Rates Files for c12ag and c12c12:
+Default Rates Files for c12c12:
 ```
-../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
 
@@ -161,7 +160,8 @@ If there are two/three references used for a reaction, the latter one will be ad
     
  PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 
- C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch`,`kunz`(default) and 'DeBoer'.DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.'
+ C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch`,`kunz`(default) and 'DeBoer'.DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.' 
+ Corresponding file = ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
 
 Neon22 reactions: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 Default : rate_ne22.dat ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
