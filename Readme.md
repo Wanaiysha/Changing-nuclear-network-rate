@@ -102,8 +102,8 @@ note2:I tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended w
 
 - CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates from tables (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
-(Note to Aisha : 1. Maybe those special rates table can be updated too?
+1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
+(Note to Aisha : 1. Maybe those special rates can be updated too?
 
 2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles reactions.
 
@@ -137,9 +137,10 @@ If there are two/three references used for a reaction, the latter one will be ad
 4. **Neon Burning**
    
 `NE20(A,G)MG24` 
-**Table-interpolation Reaction Rates ** 
 
 5. **Carbon Burning**
+   
+**Table-interpolation Reaction Rates **
 
 `C12(C12,A)NE20` 
 
@@ -150,9 +151,9 @@ Default Rates Files for c12c12:
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
 
-7. **Oxygen Burning**
+7. **Oxygen Burning** 
    
-`O16(O16,G)SI32`
+`O16(O16,G)SI32` !CF88 formula
 
 9. **Alternative Switching**
     
