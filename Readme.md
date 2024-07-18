@@ -76,11 +76,12 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   
   How code setup the network. By default
   1. Charged particle reactions computed by analytic formula in VITAL module. However, once 'T' is switched to 'F', NACRE/REACLIB TABLE is adopted .
-  3. Special reactions interpolated from tables (C12-C12,C-O,Triple-Alpha) in VITAL module.
-  4. Neutron capture (n,g) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when reaction is not available.
-  5. Reverse reaction from REVERSE module.
-  6. Proton Capture (p,g), from REACLIB and ILIADIS
-  7. Beta Decay from fuller & fowler 1985 (light isotopes, up to Fe) and ODA94 
+  3. Special reactions interpolated from tables (C12-C12,O16-16,Triple-Alpha) in VITAL module.
+  4. Reaction C12(a,g)O16 is based on analytic formula from Kunz et al 2002 but there is an option for Deboer et al 2016 (Must set in vital to be true first)
+  5. Neutron capture (n,g) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when reaction is not available.
+  6. Reverse reaction from REVERSE module.
+  7. Proton Capture (p,g), from REACLIB and ILIADIS
+  8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
 * REACLIB*
 To set reactions to read from specific REACLIB Table.
