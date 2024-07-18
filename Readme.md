@@ -84,6 +84,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
 * REACLIB*
+* 
 To set reactions to read from specific REACLIB Table.
 Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
@@ -130,10 +131,11 @@ If there are two/three references used for a reaction, the latter one will be ad
    CNO Cycle
 
    Neon-Sodium and Magnesium-Aluminium (Champagne 1994.MOstly outdated!)
-3. Helium Burning
-4. Reverse rates
+2. Helium Burning
+3. Reverse rates
 
 **Table-interpolation Reaction Rates ** 
+
 4. **Carbon Burning**
 
 `C12(C12,A)NE20` 
