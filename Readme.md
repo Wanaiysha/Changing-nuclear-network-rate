@@ -76,7 +76,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   
   How code setup the network. By default
   1. Charged particle reactions computed by analytic formula in VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
-  3. Special reactions interpolated from tables (C12-C12,O16-16,Triple-Alpha) in VITAL module.
+  3. Special reactions interpolated from tables (C12-C12) in VITAL module. 3Alpha from Reaclib(Fynbo et al. 2005)
   4. Reaction C12(a,g)O16 is based on analytic formula from Kunz et al 2002 but there is an option for Deboer et al 2016 (Must set in vital to be true first)
   5. Neutron capture (n,g) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when reaction is not available.
   6. Reverse reaction from REVERSE module.
