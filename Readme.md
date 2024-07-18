@@ -83,10 +83,10 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   7. Proton Capture (p,g), from REACLIB and ILIADIS
   8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
-* REACLIB*
-* 
-To set reactions to read from specific REACLIB Table.
-Replacing nuclear table source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
+* REACLIB* 
+
+To set reactions to read from specific REACLIB database.
+Switching nuclear datasource can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
 ```
          case(0)
             reacfile = '../NPDATA/REACLIB/reaclib.nosmo'
