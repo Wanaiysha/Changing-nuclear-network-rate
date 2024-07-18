@@ -133,20 +133,22 @@ If there are two/three references used for a reaction, the latter one will be ad
 3. Helium Burning
 4. Reverse rates
 
-** Table-interpolation Reaction Rates **  
-Default Rates Files for c12c12:
-```
-../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
-```
+**Table-interpolation Reaction Rates ** 
 4. **Carbon Burning**
 
 `C12(C12,A)NE20` 
 
 `C12(C12,P)NA23` 
+ 
+Default Rates Files for c12c12:
+```
+../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
+```
 
 5. **Neon Burning**
    
 `NE20(A,G)MG24` 
+
 
 7. **Oxygen Burning**
    
