@@ -94,7 +94,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
       * Reverse reactions from the REVERSE module using the principle of detailed balance. Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
 
    * Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
-   * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and Oda et at.1994.
+   * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and the rest from Oda et at.1994.
 - **A. REACLIB DATABASE**
 
 To set the Reaclib module to read from a specific REACLIB database, switching the nuclear data source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently, '2' is the default. You can replace this with another table or simply add another case(4) in the reaclib.F90. Be careful with the new arrays in the new table implementation and corresponding reaclib partition function files (winvn). Below are the available sources:
