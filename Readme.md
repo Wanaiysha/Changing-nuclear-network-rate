@@ -90,7 +90,7 @@ By default, the code sets up the network as follows:
    
    **However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
          
-**Special reactions interpolated from tables (C12-C12) in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
+**Special reaction, (C12-C12) interpolated from table in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
          
 **The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true first).
         
