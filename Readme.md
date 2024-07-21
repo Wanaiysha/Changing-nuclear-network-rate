@@ -1,4 +1,4 @@
-### CHANGING NUCLEAR REACTION RATE**
+### CHANGING / UPDATING NUCLEAR REACTION RATE**
 
 (Version Modular2)
 
@@ -46,7 +46,7 @@ decay_time          = 1.e17 ! seconds
 kadonis_interp      = 3 ! 1 is linear, 3 is Akima
 do_neutrinos        = .false.
 ```
-- MODIFYING REACTION RATE : APPLYING MULTIPLICATION FACTORS
+- 1. MODIFYING REACTION RATE : APPLYING MULTIPLICATION FACTORS
 
 Consider the parameters rate_index and rate_factor  above. These are arrays whose sizes are determined by the num_rate_factors parameter, which is set by default to 10 in physics/source/physics_knobs.F90. 
 This setting allows for the modification of up to 10 rates simultaneously during a run. To alter more rates, you would need to adjust the num_rate_factors in physics_knobs.F90 and recompile the code.
@@ -72,7 +72,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 
 *Hence if one prefers the table instead of analytic formula, the reactions list in ppn_physic.input must be set to 'F' first*
 
-- CHANGING NUCLEAR REACTION SOURCES / REFERENCES
+- 2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES
   
   How code setup the network. By default
   1. Charged particle reactions computed by analytic formula in VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
@@ -83,7 +83,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   7. Proton Capture (p,g), from REACLIB and ILIADIS
   8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
-**A. REACLIB DATABASE** 
+     **A. REACLIB DATABASE** 
 
 To set reaclib module to read from a specific REACLIB database.
 Switching nuclear datasource can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
@@ -102,7 +102,7 @@ note: Setting the file to read from results01111258.data produced an error: ' is
 note2: Tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'.Need to check this. 
 UPDATE: Need to update the arrays in parameter.inc for the new table.
 
-**B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90** 
+     **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90** 
 
 1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates can be updated too?
@@ -123,7 +123,7 @@ vital_calculate_rates:
 This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
-**Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)**
+     **C. Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)**
 
 If there are two/three references used for a reaction, the latter one will be adopted.
 1. Hydrogen Burning
@@ -178,12 +178,12 @@ corresponding file respectively:
 ../NPDATA/an_lo12.dat ! Longland et al., 2012
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
-- CHANGING THE KADONIS REACTION RATES
+     **D. CHANGING THE KADONIS REACTION RATES**
 
 Refer to Kadonis.F90 and one could updates the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be carefull with the number of rows with the new table/data implementation. 
 
   
-- CUSTOM AD-HOC CHANGES 
+-3. CUSTOM AD-HOC CHANGES 
   
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
 to be applied to the code, not a permanent additions or compilations.
