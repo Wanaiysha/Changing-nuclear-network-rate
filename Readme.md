@@ -86,7 +86,7 @@ By default, the code sets up the network as follows:
 
    i.    Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
    
-However, if 'T' is switched to 'F', the NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
+- However, if 'T' is switched to 'F', the NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
          
 Special reactions interpolated from tables (C12-C12) in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
          
