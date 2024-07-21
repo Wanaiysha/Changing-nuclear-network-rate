@@ -90,8 +90,8 @@ It is important to note that the reactions you are changing must be set to 'T' i
       * However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
       * Special reaction, (C12-C12) interpolated from table in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
       * The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true first).
-      * Proton Capture (p,γ) from Iliadis et al. 2001 and REACLIB (V1.1) and.
-      * Reverse reactions from the REVERSE module using the principle of detailed balance (without partition functions). Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
+      * Proton Capture (p,γ) from Iliadis et al. 2001 whenever available and the rest from REACLIB (V1.1).
+      * Reverse reactions from the REVERSE module using the principle of detailed balance. Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
 
    * Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
    * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and Oda et at.1994.
