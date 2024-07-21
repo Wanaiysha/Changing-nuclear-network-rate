@@ -1,7 +1,7 @@
-### CHANGING / UPDATING NUCLEAR REACTION RATES
+ ### CHANGING / UPDATING NUCLEAR REACTION RATES
 (Modular 2 Version) 
 
-2/7/2024 - This documentation will be updated progressively. Feel free to add more content and make corrections as needed.
+2/7/2024 - This documentation will be updated progressively. Feel free to add more content and make corrections as needed. (Aishah)
 
 ---
 
