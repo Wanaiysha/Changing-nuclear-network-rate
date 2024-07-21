@@ -134,9 +134,7 @@ The vital.F90 works with several subroutines:
 
 - **vital_calculate_rates**: This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 
-The compulsory reaction rates used in the provided code are encapsulated within the vital_calculate_rates subroutine, which is part of the module vital. Below is a list of these reaction
-
- rates along with their alternative switching mechanisms as described in the module:
+The compulsory reaction rates used in the provided code are encapsulated within the vital_calculate_rates subroutine, which is part of the module vital. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
 **Formula-based Reaction Rates (Mostly sourced from JINA, CF88, NACRE. Refer to vital.f90 for details and references)**
 
