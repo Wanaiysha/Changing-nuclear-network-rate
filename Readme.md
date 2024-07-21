@@ -138,7 +138,7 @@ The compulsory reaction rates used in the provided code are encapsulated within 
 
  rates along with their alternative switching mechanisms as described in the module:
 
-**C. Formula-based Reaction Rates (Mostly sourced from JINA, CF88, NACRE. Refer to vital.f90 for details and references)**
+**Formula-based Reaction Rates (Mostly sourced from JINA, CF88, NACRE. Refer to vital.f90 for details and references)**
 
 If there are two/three references used for a reaction, the latter one will be adopted.
 - **Hydrogen Burning**
@@ -197,7 +197,7 @@ Corresponding file respectively:
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
 
-- D. CHANGING THE KADONIS REACTION RATES
+**C. CHANGING THE KADONIS REACTION RATES**
 
 Refer to Kadonis.F90 and one could update the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be careful with the number of rows with the new table/data implementation.
 
