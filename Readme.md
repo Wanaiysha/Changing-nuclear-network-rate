@@ -178,7 +178,9 @@ Default Rate file for C12-C12:
     
  PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 
- C12-Alpha Reactions: Alternative rates for `C12(α,γ)O16` are provided by different studies (CF88, Buchmann 1996, Kunz 2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` , `Kunz`(default), and `DeBoer`. DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.'. Corresponding file = ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
+ C12-Alpha Reactions: Alternative rates for `C12(α,γ)O16` are provided by different studies (CF88, Buchmann 1996, Kunz 2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch` , `Kunz`(default), and `DeBoer`. 
+
+DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.' and its corresponding file = ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
 
 Neon22 reactions: The module allows switching between different sources for reaction rates for `Ne22(α,n)` and `Ne22(α,γ)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 Default: rate_ne22.dat ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
