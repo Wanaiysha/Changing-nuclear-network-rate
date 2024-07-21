@@ -59,6 +59,7 @@ do_neutrinos        = .false.
 Consider the parameters rate_index and rate_factor above. These are arrays whose sizes are determined by the num_rate_factors parameter, which is set by default to 10 in physics/source/physics_knobs.F90. This setting allows for the modification of up to 10 rates simultaneously during a run. To alter more rates, you would need to adjust the num_rate_factors in physics_knobs.F90 and recompile the code. Before changing anything, print out the networksetup.txt by running the ppn.exe with ininet = 1, which contains all the reactions in the network with their respective indexes shown in the first column. The desired factor can then be applied using rate_factor.
 
 ```
+#Add the lines in ppn_physics.input
 rate_index(1) = 161
 rate_factor(1) = 30.0
 ```
