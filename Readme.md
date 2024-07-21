@@ -102,9 +102,9 @@ note: Setting the file to read from results01111258.data produced an error: ' is
 note2: Tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'.Need to check this. 
 UPDATE: Need to update the arrays in parameter.inc for the new table.
 
-     - B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
+- B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3-Alpha,c12-c12 and )16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
+     Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3-Alpha,c12-c12 and )16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates can be updated too?
 
 Note : 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles reactions.
