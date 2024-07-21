@@ -83,19 +83,21 @@ It is important to note that the reactions you are changing must be set to 'T' i
 
 By default, the code sets up the network as follows:
 
-i. Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', the NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
+   i. Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', the 
+      NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
 
-ii. Special reactions interpolated from tables (C12-C12) in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
+   ii. Special reactions interpolated from tables (C12-C12) in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
 
-iii. The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true first).
+   iii. The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true 
+        first).
 
-iv. Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
+   iv. Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
 
-v. Reverse reactions from the REVERSE module.
+   v. Reverse reactions from the REVERSE module.
 
-vi. Proton Capture (p,γ) from REACLIB and ILIADIS.
+   vi. Proton Capture (p,γ) from REACLIB and ILIADIS.
 
-vii. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94.
+   vii. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94.
 
 **A. REACLIB DATABASE**
 
