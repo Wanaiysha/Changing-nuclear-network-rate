@@ -1,9 +1,9 @@
 ### CHANGING / UPDATING NUCLEAR REACTION RATES
-Sure, here is the table content written out:
+(Modular 2 Version)
 
 ---
 
-**Content**
+**Table of Content**
 
 1. **Modifying Reaction Rate: Applying Multiplication Factors**
    
@@ -15,7 +15,7 @@ Sure, here is the table content written out:
    - Changing the KADONIS Reaction Rates
 
 3. **Custom Ad-Hoc Changes**
-4. 
+   
 ---
 
 This table of contents provides a structured overview of the document, making it easier to navigate through the various sections and topics related to changing and updating nuclear reaction rates in the code.
