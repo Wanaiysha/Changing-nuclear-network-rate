@@ -142,7 +142,7 @@ The compulsory reaction rates used in the provided code are encapsulated within 
 **Formula-based Reaction Rates (Mostly sourced from JINA, CF88, NACRE. Refer to vital.f90 for details and references)**
 
 If there are two/three references used for a reaction, the latter one will be adopted.
-- **Hydrogen Burning**
+ **Hydrogen Burning**
 
    PP-CHAIN
 
@@ -150,15 +150,15 @@ If there are two/three references used for a reaction, the latter one will be ad
 
    Neon-Sodium and Magnesium-Aluminium (Champagne 1994, mostly outdated!)
    
-- **Helium Burning**
+**Helium Burning**
 
-- **Reverse Rates**
+**Reverse Rates**
 
-- **Neon Burning**
+**Neon Burning**
 
 `NE20(α,γ)MG24` 
 
-- **Carbon Burning**
+**Carbon Burning**
    
 Table-interpolation Reaction Rates
 
@@ -172,11 +172,11 @@ Default Rate file for C12-C12:
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
 
-- **Oxygen Burning** 
+**Oxygen Burning** 
    
 `O16(O16,γ)SI32` ! CF88 formula
 
-- **Alternative Switching**
+**Alternative Switching**
     
  PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 
