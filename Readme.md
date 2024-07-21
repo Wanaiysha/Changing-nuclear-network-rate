@@ -85,8 +85,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
 **2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES**
 
 By default, the code sets up the network as follows:
-
-i.    Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
+* Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
    
    - However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
    - Special reaction, (C12-C12) interpolated from table in the VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
@@ -94,9 +93,8 @@ i.    Charged particle reactions computed by analytic formula in the VITAL modul
    - Proton Capture (p,γ) from Iliadis et al. 2001 and REACLIB (V1.1) and.
    - Reverse reactions from the REVERSE module using the principle of detailed balance (without partition functions). Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
 
-ii.  Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
-
-   iii. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and Oda et at.1994.
+* Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
+* Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and Oda et at.1994.
 
    - **A. REACLIB DATABASE**
 
