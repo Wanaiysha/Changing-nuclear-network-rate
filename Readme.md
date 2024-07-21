@@ -83,7 +83,7 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
   7. Proton Capture (p,g), from REACLIB and ILIADIS
   8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
-     - A. REACLIB DATABASE 
+- A. REACLIB DATABASE 
 
 To set reaclib module to read from a specific REACLIB database.
 Switching nuclear datasource can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
@@ -123,7 +123,7 @@ vital_calculate_rates:
 This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
-     - C. Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)
+ - C. Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)
 
 If there are two/three references used for a reaction, the latter one will be adopted.
 i. **Hydrogen Burning**
