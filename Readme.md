@@ -12,7 +12,7 @@
    - REACLIB Database
    - Other Nuclear Reactions in VITAL.F90
         - Formula-based Reaction Rates
-   - Changing the KADONIS Reaction Rates
+   - Changing the KADONIS Table
 
 3. **Custom Ad-Hoc Changes**
    
