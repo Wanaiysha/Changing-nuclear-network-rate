@@ -208,4 +208,4 @@ Refer to Kadonis.F90 and one could update the Kadonis table/data as needed. Some
 
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates to be applied to the code, not a permanent addition or compilation.
 
-Look for subroutine N14TEST(t9, rateout) and modify accordingly. (Haven't checked the success of it yet.Maybe someone who can verify this)
+Look for subroutine N14TEST(t9, rateout) and modify accordingly. (Haven't checked the success of it yet.Maybe others can verify this)
