@@ -99,7 +99,7 @@ By default, the code sets up the network as follows:
 
    vii. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94.
 
-**A. REACLIB DATABASE**
+   - **A. REACLIB DATABASE**
 
 To set the Reaclib module to read from a specific REACLIB database, switching the nuclear data source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently, '2' is the default. You can replace this with another table or simply add another case(4) in the reaclib.F90. Be careful with the new arrays in the new table implementation and corresponding reaclib partition function files (winvn). Below are the available sources:
 
@@ -119,7 +119,7 @@ Note: Setting the file to read from results01111258.data produced an error: 'iso
 Note 2: Tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'. Need to check this. 
 UPDATE: Need to update the arrays in parameter.inc for the new table.
 
-**B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
+   - **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
 
 According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a formula and adopts special reaction rates for (3-Alpha, C12-C12, and 16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions are very outdated and could use some updates). 
 (Note to Aisha: 1. Maybe those special rates can be updated too?)
@@ -197,7 +197,7 @@ Corresponding file respectively:
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
 
-**C. CHANGING THE KADONIS REACTION RATES**
+   - **C. CHANGING THE KADONIS REACTION RATES**
 
 Refer to Kadonis.F90 and one could update the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be careful with the number of rows with the new table/data implementation.
 
