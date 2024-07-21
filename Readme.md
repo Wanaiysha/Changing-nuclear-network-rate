@@ -46,7 +46,7 @@ decay_time          = 1.e17 ! seconds
 kadonis_interp      = 3 ! 1 is linear, 3 is Akima
 do_neutrinos        = .false.
 ```
-- 1. MODIFYING REACTION RATE : APPLYING MULTIPLICATION FACTORS
+- A. MODIFYING REACTION RATE : APPLYING MULTIPLICATION FACTORS
 
 Consider the parameters rate_index and rate_factor  above. These are arrays whose sizes are determined by the num_rate_factors parameter, which is set by default to 10 in physics/source/physics_knobs.F90. 
 This setting allows for the modification of up to 10 rates simultaneously during a run. To alter more rates, you would need to adjust the num_rate_factors in physics_knobs.F90 and recompile the code.
