@@ -18,10 +18,6 @@
    
 ---
 
-This table of contents provides a structured overview of the document, making it easier to navigate through the various sections and topics related to changing and updating nuclear reaction rates in the code.
-
-(Version Modular2)
-
 A brief overview of how the physics module operates the nuclear calculations in the PPN (Refer to ppn_physics.F90);
 ![ppn](ppnb.png)
 
