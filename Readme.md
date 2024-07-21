@@ -72,18 +72,18 @@ Input from Umberto, with the default settings, enabling this rate as 'T' in ppn_
 
 *Hence if one prefers the table instead of analytic formula, the reactions list in ppn_physic.input must be set to 'F' first*
 
-- 2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES
+**2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES**
   
   How code setup the network. By default
   1. Charged particle reactions computed by analytic formula in VITAL module as per 'T' listed in the ppn_physics.input. However, if 'T' is switched to 'F', NACRE table or (Illiadis table for proton-capture on 20 < A < 40 nuclei) is being interpolated following the netgen module.
-  3. Special reactions interpolated from tables (C12-C12) in VITAL module. 3Alpha from Reaclib(Fynbo et al. 2005)
-  4. Reaction C12(a,g)O16 is based on analytic formula from Kunz et al 2002 but there is an option for Deboer et al 2016 (Must set in vital to be true first)
+  3. Special reactions interpolated from tables (C12-C12) in VITAL module and 3-Alpha from Reaclib (Fynbo et al. 2005).
+  4. Reaction C12(a,g)O16 is based on analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in vital to be true first)
   5. Neutron capture (n,g) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when reaction is not available.
   6. Reverse reaction from REVERSE module.
   7. Proton Capture (p,g), from REACLIB and ILIADIS
   8. Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and ODA94 
 
-     **A. REACLIB DATABASE** 
+     - A. REACLIB DATABASE 
 
 To set reaclib module to read from a specific REACLIB database.
 Switching nuclear datasource can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently '2' is the default. You can replace this by other table or simply add another case(4) in the reaclib.F90 .Be carefull with the new arrays in the new table implementation and corresponds reaclib partition function files(winvn). Below are the available sources.
@@ -102,12 +102,12 @@ note: Setting the file to read from results01111258.data produced an error: ' is
 note2: Tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'.Need to check this. 
 UPDATE: Need to update the arrays in parameter.inc for the new table.
 
-     **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90** 
+     - B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90 
 
-1. Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3alpha,c12c12 and CO reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
+Information from Marco Pignatari, it is impossible to read nuclear reaction from only a single source. Vital.F90 computes the charged particle reaction network using formula and adopts special reactions rates for (3-Alpha,c12-c12 and )16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (Some reactions are very outdated and could use some updates)
 (Note to Aisha : 1. Maybe those special rates can be updated too?
 
-2. 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles reactions.
+Note : 'nrcp' number must be consistence with the 'T' reactions? UPDATE : No need.'nrcp' number is simply a total number of charged particles reactions.
 
 The vital.F90 works with several subroutines:
 
@@ -123,51 +123,54 @@ vital_calculate_rates:
 This subroutine computes the reaction rates for various nuclear processes, including hydrogen burning, helium burning, carbon burning, and reactions involving heavier elements. It uses temperature and density inputs to determine the rates, applying formulas and interpolating values from pre-calculated tables. Changes can be made here.
 The compulsory reaction rates used in the provided code are encapsulated within the `vital_calculate_rates` subroutine, which is part of the module `vital`. Below is a list of these reaction rates along with their alternative switching mechanisms as described in the module:
 
-     **C. Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)**
+     - C. Formula-based Reaction Rates ( Mostly sourced from JINA,CF88, NACRE. Refer to vital.f90 for details reference)
 
 If there are two/three references used for a reaction, the latter one will be adopted.
-1. Hydrogen Burning
+i. **Hydrogen Burning**
 
    PP-CHAIN
 
    CNO Cycle
 
    Neon-Sodium and Magnesium-Aluminium (Champagne 1994.MOstly outdated!)
-2. Helium Burning
-3. Reverse rates
+   
+ii. **Helium Burning**
+iii. **Reverse rates**
 
-4. **Neon Burning**
+iv. **Neon Burning**
    
 `NE20(A,G)MG24` 
 
-5. **Carbon Burning**
+v. **Carbon Burning**
    
-**Table-interpolation Reaction Rates **
+*Table-interpolation Reaction Rates
 
 `C12(C12,A)NE20` 
 
 `C12(C12,P)NA23` 
  
-Default Rates Files for c12c12:
+Default Rate file for c12-c12:
 ```
 ../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 ```
 
-7. **Oxygen Burning** 
+vi. **Oxygen Burning** 
    
 `O16(O16,G)SI32` !CF88 formula
 
-9. **Alternative Switching**
+vii. **Alternative Switching**
     
  PP-IV Chain: `IPPIV` variable controls the inclusion of the hot H-deficient He3-burning (PP-IV chain).
 
- C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). The selection is managed by logical flags and parameters like `Buch`,`kunz`(default) and 'DeBoer'.DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.' 
+ C12-Alpha Reactions: Alternative rates for `C12(A,G)O16` are provided by different studies (CF88, Buchmann1996, Kunz2002, and DeBoer+2016). 
+ 
+ The selection is managed by logical flags and parameters like `Buch`,`kunz`(default) and `DeBoer`. DeBoer is switched off by the flag 'logical:: c12ag_jdb2016 = .false.' 
  Corresponding file = ../NPDATA/c12ag_jdb16.dat   ! Nobuya Nishimura et al., 2014.
 
 Neon22 reactions: The module allows switching between different sources for reaction rates for `Ne22(A,N)` and `Ne22(A,G)`, including rates from Michael Wiescher, Longland+2012, and Talwar+2015. 
 Default : rate_ne22.dat ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
 
-Alternative sources for Ne22 rates in the VITAL.F90. Change to 'true' with your preference or replace with your own file: 
+Alternative sources for Ne22 rates in the VITAL.F90. Change to 'T' with your preference or replace with your own file: 
 ```
    logical:: ne22_michael = .false.
    logical:: ne22_longland = .false.
@@ -178,12 +181,12 @@ corresponding file respectively:
 ../NPDATA/an_lo12.dat ! Longland et al., 2012
 ../NPDATA/ne22a_mw15.dat ! Talwar et al., 2015
 ```
-     **D. CHANGING THE KADONIS REACTION RATES**
+     - D. CHANGING THE KADONIS REACTION RATES**
 
 Refer to Kadonis.F90 and one could updates the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be carefull with the number of rows with the new table/data implementation. 
 
   
--3. CUSTOM AD-HOC CHANGES 
+**3. CUSTOM AD-HOC CHANGES** 
   
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates
 to be applied to the code, not a permanent additions or compilations.
