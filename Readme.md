@@ -9,10 +9,10 @@
    
 2. **Changing Nuclear Reaction Sources/References**
    
-   - REACLIB Database
-   - Other Nuclear Reactions in VITAL.F90
+   - A. REACLIB Database
+   - B. Other Nuclear Reactions in VITAL.F90
         - Formula-based Reaction Rates
-   - Changing the KADONIS Table
+   - C. Changing the KADONIS Table
 
 3. **Custom Ad-Hoc Changes**
    
