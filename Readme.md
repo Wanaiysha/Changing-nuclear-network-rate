@@ -84,7 +84,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
 
 **2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES**
 
-- * By default, the code sets up the network as follows:
+- By default, the code sets up the network as follows:
     * Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
    
       * However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
