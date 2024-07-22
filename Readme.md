@@ -88,8 +88,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
     * Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
    
       * However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
-      * Special reaction, C12-C12 and o16-O16 are sourced from CF88 while 3-Alpha from Reaclib (Fynbo et al. 2005).
-      * There is an option to interpolate C12-C12 from intermediate C12C12 rate; a geometric mean between the Wiescher 2016 and CF88.
+      * Special reaction, C12-C12 and O16-O16 are sourced from CF88 while 3-Alpha from Fynbo et al. 2005. There is an option to interpolate intermediate C12-C12 rate; a geometric mean between the Wiescher 2016 and CF88.
       * The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true first).
       * Proton Capture (p,γ) from Iliadis et al. 2001 whenever available and the rest from REACLIB (V1.1).
       * Reverse reactions from the REVERSE module using the principle of detailed balance. Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
@@ -118,7 +117,7 @@ UPDATE: Need to update the arrays in parameter.inc for the new table.
 
    - **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
 
-According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a formula and adopts special reaction rates for (3-Alpha, C12-C12, and 16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions are very outdated and could use some updates). 
+According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a analytic formula and adopts special reaction rates for (3-Alpha, C12-C12, and O16-O16 reactions). Hence, only formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions are very outdated and could use some updates). 
 (Note to Aisha: 1. Maybe those special rates can be updated too?)
 
 Note: 'nrcp' number must be consistent with the 'T' reactions? UPDATE: No need. 'nrcp' number is simply a total number of charged particle reactions.
