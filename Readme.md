@@ -159,7 +159,7 @@ Table-interpolation Reaction Rates
 
 `C12(C12,p)NA23` 
  
-Default Rate file for C12-C12: CF88
+Default Rate for C12-C12 : CF88 
 
 Alternative : Look for subroutine 'C12C12Inter'
 ```
