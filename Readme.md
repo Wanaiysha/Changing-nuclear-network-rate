@@ -160,10 +160,11 @@ Table-interpolation Reaction Rates
 
 `C12(C12,p)NA23` 
  
-Default Rate file for C12-C12:
+Default Rate file for C12-C12: CF88
 
+Alternative : Look for subroutine 'C12C12Inter'
 ```
-../NPDATA/12C+12Crate_new.tex  ! Joachim Gorres, M. Wiescher, G. Imbriani, J. deBoer, and Mary Beard, 2014
+../NPDATA/12C+12Crate_new.tex  ! intermediate C12C12 rate Wiescher 2016 and CF88.
 ```
 
 **Oxygen Burning** 
