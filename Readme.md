@@ -90,11 +90,12 @@ It is important to note that the reactions you are changing must be set to 'T' i
       * However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
       * Special reaction, C12-C12 and O16-O16 are sourced from CF88 while 3-Alpha from Fynbo et al. 2005. There is an option to interpolate intermediate C12-C12 rate; a geometric mean between the Wiescher 2016 and CF88.
       * The reaction C12(α,γ)O16 is based on an analytic formula from Kunz et al. 2002 but there is an option for Deboer et al 2016 (Must set in VITAL to be true first).
-      * Proton Capture (p,γ) from Iliadis et al. 2001 whenever available and the rest from REACLIB (V1.1).
+      * Proton Capture (p,γ) from Iliadis et al. 2010 whenever available.
       * Reverse reactions from the REVERSE module using the principle of detailed balance. Therefore, rates with 'v' flag in REACLIB data must be corrected to include partition function modifications.
 
    * Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
    * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and the rest from Oda et at.1994.
+     
 - **A. REACLIB DATABASE**
 
 To set the Reaclib module to read from a specific REACLIB database, switching the nuclear data source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently, '2' is the default. You can replace this with another table or simply add another case(4) in the reaclib.F90. Be careful with the new arrays in the new table implementation and corresponding reaclib partition function files (winvn). Below are the available sources:
