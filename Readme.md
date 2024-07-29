@@ -95,7 +95,45 @@ It is important to note that the reactions you are changing must be set to 'T' i
 
    * Neutron capture (n,γ) is interpolated from MAC and SEFT tables in the KADONIS module, and from REACLIB when the reaction is not available.
    * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and the rest from Oda et at.1994.
-     
+
+ Example: In Vital.F90
+I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I needed.
+ ! C12(A,G)O16   
+ ! Data from Reaclib NACRE-2 
+                  if (t9 >= 0.01_r8) then
+                  	a0r=2.546340e+02
+					              a1r=-1.840970e+00
+				              	a2r=1.034110e+02
+				              	a3r=-4.205670e+02                      
+					              a4r=6.408740e+01
+				              	a5r=-1.246240e+01
+				              	a6r=1.373030e+02
+
+                  	N_n44 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
+                
+                 	a0r=6.965260e+01
+				             	a1r=-1.392540e+00 
+				             	a2r=5.891280e+01
+			             		a3r=-1.482730e+02
+                 	a4r=9.083240e+00
+                  	a5r=-5.410410e-01
+                 	a6r=7.035540e+01
+
+                 	V_n444 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
+
+               		V(44) = (exp(N_n44) + exp(V_n444)) * RHO 
+                  else
+                    V(44) = ZERO
+                  end if
+                  
+- Make sure the reaction is set to 'T' in ppn_physic.input.
+- Run with ininet=1.
+- Double check if the 'networksetup' reads the reaction with Vital.
+- Run again with ininet=3 for full computation.
+- Results are as follow;
+  
+![ppn2](nacrerate2.png)
+ 
 - **A. REACLIB DATABASE**
 
 To set the Reaclib module to read from a specific REACLIB database, switching the nuclear data source can be done by setting the index_reaclib = '' in the ppn_physics.input. Currently, '2' is the default. You can replace this with another table or simply add another case(4) in the reaclib.F90. Be careful with the new arrays in the new table implementation and corresponding reaclib partition function files (winvn). Below are the available sources:
