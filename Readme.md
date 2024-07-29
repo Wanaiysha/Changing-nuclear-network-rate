@@ -102,7 +102,7 @@ I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital
  ! C12(A,G)O16   
  ! Data from Reaclib NACRE-2 
   if (t9 >= 0.01_r8) then
- 	a0r=2.546340e+02
+	a0r=2.546340e+02
 	a1r=-1.840970e+00
 	a2r=1.034110e+02
 	a3r=-4.205670e+02                      
@@ -111,21 +111,20 @@ I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital
 	a6r=1.373030e+02
 
  	N_n44 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
-                
-                 	a0r=6.965260e+01
-			a1r=-1.392540e+00 
-			a2r=5.891280e+01
-	                a3r=-1.482730e+02
-                 	a4r=9.083240e+00
-                  	a5r=-5.410410e-01
-                 	a6r=7.035540e+01
 
-                 	V_n444 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
+	a0r=6.965260e+01
+	a1r=-1.392540e+00
+	a2r=5.891280e+01
+	a3r=-1.482730e+02
+	a4r=9.083240e+00
+	a5r=-5.410410e-01
+	a6r=7.035540e+01
+	V_n444 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
+	V(44) = (exp(N_n44) + exp(V_n444)) * RHO 
 
-               		V(44) = (exp(N_n44) + exp(V_n444)) * RHO 
-                  else
-                    V(44) = ZERO
-                  end if
+    else
+	V(44) = ZERO
+    end if
  ```                 
 - Make sure the reaction is set to 'T' in ppn_physic.input.
 - Run with ininet=1.
