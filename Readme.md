@@ -103,19 +103,19 @@ I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital
  ! Data from Reaclib NACRE-2 
                   if (t9 >= 0.01_r8) then
                   	a0r=2.546340e+02
-					              a1r=-1.840970e+00
-				              	a2r=1.034110e+02
-				              	a3r=-4.205670e+02                      
-					              a4r=6.408740e+01
-				              	a5r=-1.246240e+01
-				              	a6r=1.373030e+02
+	                a1r=-1.840970e+00
+	                a2r=1.034110e+02
+	                a3r=-4.205670e+02                      
+	                a4r=6.408740e+01
+	         	a5r=-1.246240e+01
+	                a6r=1.373030e+02
 
                   	N_n44 = a0r + (a1r/t9) + (a2r/TP13) + (a3r*TP13) + (a4r*t9) + (a5r*TP53) + (a6r*lnt9)
                 
                  	a0r=6.965260e+01
-				             	a1r=-1.392540e+00 
-				             	a2r=5.891280e+01
-			             		a3r=-1.482730e+02
+			a1r=-1.392540e+00 
+			a2r=5.891280e+01
+	                a3r=-1.482730e+02
                  	a4r=9.083240e+00
                   	a5r=-5.410410e-01
                  	a6r=7.035540e+01
@@ -129,9 +129,9 @@ I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital
  ```                 
 - Make sure the reaction is set to 'T' in ppn_physic.input.
 - Run with ininet=1.
-- Double check if the 'networksetup' reads the reaction with Vital.
+- Double check if the 'networksetup' reads the reaction with Vital and not NACRR or JINAV/JINAC
 - Run again with ininet=3 for full computation.
-- Results are as follow;
+- Comparison between different references is as follow;
   
 ![ppn2](nacrerate2.png)
  
