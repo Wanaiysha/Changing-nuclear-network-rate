@@ -98,6 +98,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
 
  Example: In Vital.F90
 I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I needed.
+ ```
  ! C12(A,G)O16   
  ! Data from Reaclib NACRE-2 
                   if (t9 >= 0.01_r8) then
@@ -125,7 +126,7 @@ I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital
                   else
                     V(44) = ZERO
                   end if
-                  
+ ```                 
 - Make sure the reaction is set to 'T' in ppn_physic.input.
 - Run with ininet=1.
 - Double check if the 'networksetup' reads the reaction with Vital.
