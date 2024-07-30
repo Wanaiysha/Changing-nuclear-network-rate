@@ -238,7 +238,7 @@ The C12+C12 reaction rate is comprehensively evaluated in vital.f90, specificall
 
 ![ppn3](sc1.jpeg)
 
-As you can see,  v(59), v(60), and v(61) represent the reaction rates for the p-, alpha-, and n-channels, respectively. Each requires the c12c12 variable, which denotes the total rate. This is calculated using the CF88 analytic formula.
+As seen,  v(59), v(60), and v(61) represent the reaction rates for the p-, alpha-, and n-channels, respectively. Each requires the c12c12 variable, which denotes the total rate. This is calculated using the CF88 analytic formula.
 
 ![ppn4](sc2.jpeg)
 
@@ -255,30 +255,12 @@ C12C12W is computed a bunch of lines earlier:
 ![ppn6](sc5.jpeg)
 
 Specifically, to calculate C12C12W, mppnp requires the array values of c12tab(1:nc12, i), with nc12 set to 3 and i representing temperature values. The values of nc12=1, 2, or 3 correspond to the recommended, lower, and upper limits of Wiescher's rate, respectively, which are read from "NPDATA/12C+12Crate_new.tex". It is important to note that uncommenting the relevant lines as they stand will result in the use of the upper limit. 
+Additionally, the comment lines immediately preceding the necessary line for utilizing Wiescher's rate appear to be incorrect.
 
 ![ppn7](sc6.jpeg)
 
-Additionally, the comment lines immediately preceding the necessary line for utilizing Wiescher's rate appear to be incorrect.
-
-
-![ppn8](sc7.jpeg)
-
-
 If I have interpreted the code correctly, c12c12w(1), c12c12w(2), and c12c12w(3) represent the upper limits of the total, alpha, and p-channel, respectively, rather than the recommended, lower, and upper limits of the total rate. This interpretation aligns with the debugging print options displayed in the screenshot, particularly the printing of c12c12(2)+c12c12(3) to presumably confirm that it equals c12c12(1), which is the total rate.
-
 As illustrated in the first screenshot, the total rate is utilized to calculate the various channels by applying three distinct factors: BRCCN, BRCCP, and BRCCA. BRCCN is assessed in the top half of the first screenshot, while BRCCP and BRCCA are set as parameters at 0.35 and 0.65, respectively
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    - **C. CHANGING THE KADONIS REACTION RATES**
