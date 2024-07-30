@@ -250,9 +250,13 @@ Additionally, one can utilize the rate from Michael Wiescher or an intermediate 
 
 ![ppn6](sc4.jpeg)
 
-Specifically, to calculate C12C12W, mppnp requires the array values of c12tab(1:nc12, i), with nc12 set to 3 and i representing temperature values. The values of nc12=1, 2, or 3 correspond to the recommended, lower, and upper limits of Wiescher's rate, respectively, which are read from "NPDATA/12C+12Crate_new.tex". It is important to note that uncommenting the relevant lines as they stand will result in the use of the upper limit. 
+C12C12W is computed a bunch of lines earlier:
 
 ![ppn6](sc5.jpeg)
+
+Specifically, to calculate C12C12W, mppnp requires the array values of c12tab(1:nc12, i), with nc12 set to 3 and i representing temperature values. The values of nc12=1, 2, or 3 correspond to the recommended, lower, and upper limits of Wiescher's rate, respectively, which are read from "NPDATA/12C+12Crate_new.tex". It is important to note that uncommenting the relevant lines as they stand will result in the use of the upper limit. 
+
+![ppn7](sc6.jpeg)
 
 Additionally, the comment lines immediately preceding the necessary line for utilizing Wiescher's rate appear to be incorrect.
 pic4
