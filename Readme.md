@@ -235,7 +235,7 @@ Corresponding file respectively:
 - C12-C12 Setting
   
 The C12+C12 reaction rate is comprehensively evaluated in vital.f90, specifically within the code section indicated below:
-![ppn](sc1.png)
+![ppn3](sc1.jpeg)
 
 As you can see,  v(59), v(60), and v(61) represent the reaction rates for the p-, alpha-, and n-channels, respectively. Each requires the c12c12 variable, which denotes the total rate. As mentioned last week, this is calculated using the CF88 analytic formula.
 pic2
