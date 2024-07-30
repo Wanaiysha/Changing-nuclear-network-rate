@@ -259,7 +259,11 @@ Specifically, to calculate C12C12W, mppnp requires the array values of c12tab(1:
 ![ppn7](sc6.jpeg)
 
 Additionally, the comment lines immediately preceding the necessary line for utilizing Wiescher's rate appear to be incorrect.
-pic4
+
+
+![ppn8](sc7.jpeg)
+
+
 If I have interpreted the code correctly, c12c12w(1), c12c12w(2), and c12c12w(3) represent the upper limits of the total, alpha, and p-channel, respectively, rather than the recommended, lower, and upper limits of the total rate. This interpretation aligns with the debugging print options displayed in the screenshot, particularly the printing of c12c12(2)+c12c12(3) to presumably confirm that it equals c12c12(1), which is the total rate.
 
 As illustrated in the first screenshot, the total rate is utilized to calculate the various channels by applying three distinct factors: BRCCN, BRCCP, and BRCCA. BRCCN is assessed in the top half of the first screenshot, while BRCCP and BRCCA are set as parameters at 0.35 and 0.65, respectively
