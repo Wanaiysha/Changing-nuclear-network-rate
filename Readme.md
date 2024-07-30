@@ -235,15 +235,24 @@ Corresponding file respectively:
 - C12-C12 Setting
   
 The C12+C12 reaction rate is comprehensively evaluated in vital.f90, specifically within the code section indicated below:
+
 ![ppn3](sc1.jpeg)
 
-As you can see,  v(59), v(60), and v(61) represent the reaction rates for the p-, alpha-, and n-channels, respectively. Each requires the c12c12 variable, which denotes the total rate. As mentioned last week, this is calculated using the CF88 analytic formula.
-pic2
+As you can see,  v(59), v(60), and v(61) represent the reaction rates for the p-, alpha-, and n-channels, respectively. Each requires the c12c12 variable, which denotes the total rate. This is calculated using the CF88 analytic formula.
+
+![ppn4](sc2.jpeg)
+
+As illustrated in the first screenshot, the total rate is utilized to calculate the various channels by applying three distinct factors: BRCCN, BRCCP, and BRCCA. BRCCN is assessed in the top half of the first screenshot, while BRCCP and BRCCA are set as parameters at 0.35 and 0.65, respectively.
+
+![ppn5](sc3.jpeg)
 
 Additionally, one can utilize the rate from Michael Wiescher or an intermediate rate between Wiescher's upper value and CF88. To employ Michael Wiescher's rate, it is necessary to uncomment the specified line.
-pic 3
+
+![ppn6](sc4.jpeg)
 
 Specifically, to calculate C12C12W, mppnp requires the array values of c12tab(1:nc12, i), with nc12 set to 3 and i representing temperature values. The values of nc12=1, 2, or 3 correspond to the recommended, lower, and upper limits of Wiescher's rate, respectively, which are read from "NPDATA/12C+12Crate_new.tex". It is important to note that uncommenting the relevant lines as they stand will result in the use of the upper limit. 
+
+![ppn6](sc5.jpeg)
 
 Additionally, the comment lines immediately preceding the necessary line for utilizing Wiescher's rate appear to be incorrect.
 pic4
