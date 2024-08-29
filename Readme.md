@@ -268,7 +268,8 @@ As illustrated in the first screenshot, the total rate is utilized to calculate 
 
    - **C. CHANGING THE KADONIS REACTION RATES**
 
-Refer to Kadonis.F90 and one could update the Kadonis table/data as needed. Some reactions have more than one database and only the latter one will be adopted in the calculation. Be careful with the number of rows with the new table/data implementation.
+Refer to Kadonis.F90 and one could update the NPDATA/MACS as needed. Some reactions have more than one database and only the 1st one will be adopted in the calculation. Be careful with the number of rows with the new table/data implementation.
+Note : FYI, 'O' means experimental data and '1' means theoretical date (For reference purpose only)
 
 **3. CUSTOM AD-HOC CHANGES** 
 
