@@ -177,6 +177,7 @@ The compulsory reaction rates used in the provided code are encapsulated within 
 **Formula-based Reaction Rates (Mostly sourced from JINA, CF88, NACRE. Refer to vital.f90 for details and references)**
 
 If there are two/three references used for a reaction, the latter one will be adopted.
+
  **Hydrogen Burning**
 
    PP-CHAIN
