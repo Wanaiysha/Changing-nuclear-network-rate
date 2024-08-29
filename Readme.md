@@ -11,7 +11,7 @@
    
 2. **Changing Nuclear Reaction Sources/References**
 
-Run with ininet=1, and it will generate full network setup used in the PPN model. One can set the reactions to T or F based on the prefer reference/source. Only special reactions are code harded in the Vital such as C12-C12, O16-O16, 3-Alpha and C12-C12 rates. Be carefull not to choose 2 sources for a reaction. Then, run again with inenit=3 to take your latest network setup into effect.
+Run with ininet=1, and it will generate full network setup used in the PPN model. One can set the reactions to T or F based on the prefer reference/source. Only special reactions are code harded in the Vital such as C12-C12, O16-O16, and 3-Alpha rates. Be carefull not to choose 2 sources for a reaction. Then, run again with inenit=3 to take your latest network setup into effect.
 
 Changing data sources : 
    - A. REACLIB Database
