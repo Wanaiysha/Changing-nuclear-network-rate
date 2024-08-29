@@ -10,14 +10,17 @@
 1. **Modifying Reaction Rate: Applying Multiplication Factors**
    
 2. **Changing Nuclear Reaction Sources/References**
-   
+
+Run with ininet=1, and it will generate full network setup used in the PPN model. One can set the reactions to T or F based on the prefer reference/source. Only special reactions are code harded in the Vital such as C12-C12, O16-O16, 3-Alpha and C12-C12 rates. Be carefull not to choose 2 sources for a reaction. Then, run again with inenit=3 to take your latest network setup into effect.
+
+Changing data sources : 
    - A. REACLIB Database
    - B. Other Nuclear Reactions in VITAL.F90
         - Formula-based Reaction Rates
         - C12-C12 setting
    - C. Changing the KADONIS Table
 
-3. **Custom Ad-Hoc Changes**
+4. **Custom Ad-Hoc Changes**
    
 ---
 
@@ -86,7 +89,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
 **2. CHANGING NUCLEAR REACTION SOURCES / REFERENCES**
 
 - By default, the code sets up the network as follows:
-    * Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
+   * Charged particle reactions computed by analytic formula in the VITAL module as per 'T' listed in the ppn_physics.input. 
    
       * However, if 'T' is switched to 'F', the NACRE I (2000) table is being interpolated following the netgen module (Illiadis,2001 table for proton-capture on 20 < A < 40 nuclei)
       * Special reaction, C12-C12 and O16-O16 are sourced from CF88 while 3-Alpha from Fynbo et al. 2005. There is an option to interpolate intermediate C12-C12 rate; a geometric mean between the Wiescher 2016 and CF88.
@@ -152,8 +155,8 @@ To set the Reaclib module to read from a specific REACLIB database, switching th
 
 Note: Setting the file to read from results01111258.data produced an error: 'isotope not found in reaclib hash table4tl20'. UPDATE : I forgot to run with ininet=1 first to define the new isotopes-network before running it again with inenit=3.
 
-Note 2: Tried to replace the reaclib table v2.2 used in Mesa-r10389, but ended with 'bad floating points'. Need to check this. 
-UPDATE: Need to update the arrays in parameter.inc for the new table. More isotopes are needed to be defined if new Reaclib table is used.
+Note 2: Tried to replace the reaclib table v2.2 used in Mesa-r10389 (+ Wischier 2017), but ended with 'bad floating points'. Need to check this. 
+UPDATE: Need to update the arrays in parameter.inc for the new table. More isotopes are needed to be defined if the new Reaclib table is used.
 
    - **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
 
