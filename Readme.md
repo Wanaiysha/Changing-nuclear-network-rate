@@ -101,7 +101,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
    * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and the rest from Oda et at.1994.
 
  Example: In Vital.F90
-I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I needed.
+I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I want to adopt.
  ```
  ! C12(A,G)O16   
  ! Data from Reaclib NACRE-2 
@@ -269,7 +269,7 @@ As illustrated in the first screenshot, the total rate is utilized to calculate 
    - **C. CHANGING THE KADONIS REACTION RATES**
 
 Refer to Kadonis.F90 and one could update the NPDATA/MACS as needed. Some reactions have more than one database and only the 1st one will be adopted in the calculation. Be careful with the number of rows with the new table/data implementation.
-Note : FYI, 'O' means experimental data and '1' means theoretical date (For reference purpose only)
+Note : FYI, 'O' means experimental data and '1' means theoretical data (For reference purpose only)
 
 **3. CUSTOM AD-HOC CHANGES** 
 
