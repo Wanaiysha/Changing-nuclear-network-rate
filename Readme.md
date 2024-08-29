@@ -20,7 +20,7 @@ Changing data sources :
         - C12-C12 setting
    - C. Changing the KADONIS Table
 
-4. **Custom Ad-Hoc Changes**
+3. **Custom Ad-Hoc Changes**
    
 ---
 
