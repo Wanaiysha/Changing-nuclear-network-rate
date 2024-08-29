@@ -156,7 +156,7 @@ To set the Reaclib module to read from a specific REACLIB database, switching th
 Note: Setting the file to read from results01111258.data produced an error: 'isotope not found in reaclib hash table4tl20'. UPDATE : I forgot to run with ininet=1 first to define the new isotopes-network before running it again with inenit=3.
 
 Note 2: Tried to replace the reaclib table v2.2 used in Mesa-r10389 (+ Wischier 2017), but ended with 'bad floating points'. Need to check this. 
-UPDATE: Need to update the arrays in parameter.inc for the new table. More isotopes are needed to be defined if the new Reaclib table wants to be used.
+UPDATE: Need to update the arrays in parameter.inc for the new table. More isotopes are needed to be defined if the new Reaclib table is to be used.
 
    - **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
 
