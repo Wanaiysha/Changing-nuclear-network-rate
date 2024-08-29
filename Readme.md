@@ -101,7 +101,7 @@ It is important to note that the reactions you are changing must be set to 'T' i
    * Beta Decay from Fuller & Fowler 1985 (light isotopes, up to Fe) and the rest from Oda et at.1994.
 
  Example: In Vital.F90
-I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I want to adopt.
+I had added these lines right after V(44) ( correponds to C12(a,g)O16 ) in Vital to override other references and adopt NACRE II following a MESA nuclear reation rate I want to follow.
  ```
  ! C12(A,G)O16   
  ! Data from Reaclib NACRE-2 
