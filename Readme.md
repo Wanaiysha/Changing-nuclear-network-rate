@@ -160,7 +160,7 @@ UPDATE: Need to update the arrays in parameter.inc for the new table. More isoto
 
    - **B. CHANGING OTHER NUCLEAR REACTIONS IN VITAL.F90**
 
-According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a analytic formula and adopts special reaction rates for (3-Alpha, C12-C12, and O16-O16 reactions). Hence,  the formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions including C12-C12, and O16-O16 reactions are very outdated). 
+According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a analytic formula and adopts special reaction rates for (3-Alpha, C12-C12, and O16-O16 reactions). Hence,  the formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions are very outdated). 
 
 Note: 'nrcp' number must be consistent with the 'T' reactions? UPDATE: No need. 'nrcp' number is simply a total number of charged particle reactions.
 
