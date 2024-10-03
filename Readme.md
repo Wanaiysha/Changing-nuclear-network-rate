@@ -7,7 +7,13 @@
 
 **Table of Content**
 
+For PPN
 In General, run with ininet=1, and it will generate full network setup used in the PPN model. One can set the reactions to T or F based on the prefer reference/source. Only special reactions are code harded in the Vital such as C12-C12, O16-O16, and 3-Alpha rates. Be carefull not to choose 2 sources for a reaction. Then, run again with ininet=3 to take your latest network setup into effect.
+
+For MPPNP
+Ininet 3 isn't working in mppnp, any changes made to the T/F flags will just be overwritten by the original network setup in a rerun, where Vital still has priority.
+Need to manually change T/F flag in the ppn_physics.input file. The network setup at the intersection between the vital network and the full network is regulated from the choice indicated there. So, if you set a reaction F in ppn_physics.input, that will not use as default the vital rate, but the rate coming from other sources.
+
 
 1. **Modifying Reaction Rate: Applying Multiplication Factors**
    
@@ -162,7 +168,7 @@ UPDATE: Need to update the arrays in parameter.inc for the new table. More isoto
 
 According to Marco Pignatari, it is impossible to read nuclear reactions from only a single source. Vital.F90 computes the charged particle reaction network using a analytic formula and adopts special reaction rates for (3-Alpha, C12-C12, and O16-O16 reactions). Hence,  the formulated reaction rates can be changed or updated manually in the VITAL.F90 (some reactions are very outdated). 
 
-Note: 'nrcp' number must be consistent with the 'T' reactions? UPDATE: No need. 'nrcp' number is simply a total number of charged particle reactions.
+Note: 'nrcp' number must be consistent with the 'T' reactions in vital? UPDATE: No need. 'nrcp' number is simply a total number of charged particle reactions.
 
 The vital.F90 works with several subroutines:
 
