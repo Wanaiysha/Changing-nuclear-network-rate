@@ -319,12 +319,10 @@ Vt = np.sqrt(2 * T * keV_to_J / mu) * 100  # Multiply by 100 to convert from m/s
 
 # Calculate the reaction rate in cm^3/mol/s
 Rate_T9 = Avogadro * cross_section * Vt
+print(Rate_T9,T9)
 ```
-In vital,F90. One could add the tabular data as intended.
+In vital,F90. One could add the tabular data where rate must be in cm3 mol-1 s-1 and T9 in K.
 ```
-If (t9 .gt. 0.5) then
-  call N14TEST(t9, rateout)
-              v(76) = rateout * RHO * PROTOFAK
          !     The rate for N14(n,p)C14 is then set to the tabulated rate, which is
          !     interpolated for the temperature t9.
 
