@@ -286,7 +286,8 @@ This section in vital.F90 is implemented in order to allow for quick ad-hoc rate
 
 Example:
 
-I have implemented in vital.F90 to include new rate for neutron poison N14(n,p)C14 in tabular data. 
+I have implemented in vital.F90 to include new rate for neutron poison N14(n,p)C14 in tabular data.( https://doi.org/10.1103/PhysRevC.107.064617 )
+
 For averaged maxwellian cross section tabular data, use the python code here to simply convert the units for Vital.F90 (KT to T9 and milibarn to cm^3 mol-1 s-1)
 ```
 import numpy as np
