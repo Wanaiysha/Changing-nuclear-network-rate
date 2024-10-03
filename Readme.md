@@ -275,5 +275,109 @@ Note : FYI, 'O' means experimental data and '1' means theoretical data (For refe
 **3. CUSTOM AD-HOC CHANGES** 
 
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates to be applied to the code, not a permanent addition or compilation.
+Example:
+I have implemented in vital.F90 to include new neutron poison effect in tabular data. 
+Use these equations to convert tabular values,KT to T9 and milibarn to cm3mol-1s-1
+```
+import numpy as np
+import matplotlib.pyplot as plt
 
-Look for subroutine N14TEST(t9, rateout) and modify accordingly. (Haven't checked the success of it yet.Maybe others can verify this)
+# Constants
+Avogadro = 6.022e23  # Avogadro's number (mol^-1)
+k = 1.38e-23         # Boltzmann's constant (J/K)
+amu_to_kg = 1.66053906660e-27  # Atomic mass unit to kg
+keV_to_J = 1.60218e-16  # 1 keV in Joules
+mb_to_cm2 = 1e-27       # Conversion from millibarn to cm^2
+
+# Temperature in keV (Tabular value from publication)
+T = np.array([5, 8, 10, 15, 20, 23, 25, 30, 40, 50, 60, 80, 100])  # in keV
+
+# Cross-section in millibarns (Tabular value from publication) (to cm^2) 
+cross_section_mb = np.array([3.910, 3.090, 2.760, 2.260, 1.970, 1.840, 1.770, 1.630, 1.470, 1.460, 1.690, 3.140, 5.830])  
+cross_section = cross_section_mb * mb_to_cm2  # Convert to cm^2
+
+# Convert temperature to Kelvin
+T9 = T * 11604525.0061657 * 1e-9  # T in keV converted to GK (T9)
+
+# Function to calculate the reduced mass
+def reduced_mass(m1, m2):
+    return (m1 * m2) / (m1 + m2)
+
+# Parameters
+m_N14 = 14.003074  # Mass of N-14 in atomic mass units (amu)
+m_neutron = 1.008664  # Mass of neutron in atomic mass units (amu)
+
+# Convert mass from amu to kg
+m_N14_kg = m_N14 * amu_to_kg
+m_neutron_kg = m_neutron * amu_to_kg
+
+# Calculate reduced mass in kg 1.5617×10 −27
+mu = reduced_mass(m_N14_kg, m_neutron_kg)
+
+# Calculate thermal velocity (Vt) in cm/s
+Vt = np.sqrt(2 * T * keV_to_J / mu) * 100  # Multiply by 100 to convert from m/s to cm/s
+
+# Calculate the reaction rate in cm^3/mol/s
+Rate_T9 = Avogadro * cross_section * Vt
+```
+In vital,F90. One could add the tabular data as intended.
+```
+If (t9 .gt. 0.5) then
+  call N14TEST(t9, rateout)
+              v(76) = rateout * RHO * PROTOFAK
+         !     The rate for N14(n,p)C14 is then set to the tabulated rate, which is
+         !     interpolated for the temperature t9.
+
+integer :: i
+         integer, parameter :: ndim = 13
+         real(r8) :: t9rate(ndim), rate(ndim), lograte(ndim)
+         real(r8) :: t9, rateout
+
+         t9rate = (/0.05802263_r8, 0.0928362_r8,  0.11604525_r8, 0.17406788_r8, 0.2320905_r8,  0.26690408_r8, &
+				    0.29011313_r8, 0.34813575_r8, 0.464181_r8,   0.58022625_r8, 0.6962715_r8 , 0.928362_r8, 1.1604525_r8/)
+         rate = (/2.38427e5_r8, 2.38340e5_r8, 2.38014e5_r8, 2.38697e5_r8, &
+				  2.40256e5_r8, 2.40644e5_r8, 2.41344e5_r8, 2.43468e5_r8, &
+				  2.53536e5_r8, 2.81534e5_r8, 3.56989e5_r8, 7.65892e5_r8, &
+				  1.58987e6_r8/)
+
+         !     I am interested in performing a logarithmic interpolation, so I pass
+         !     the log of the rate instead of the actual rate.
+         do i = 1, ndim
+            lograte(i) = log10(rate(i))
+         end do
+
+         !     This function performs the interpolation and outputs the rate (rateout)
+         !     for a particular temperature (t9choice)
+         call rate_interp(t9rate, lograte, ndim, t9, rateout)
+
+         rateout = 10._r8 ** rateout
+
+         return
+
+   end subroutine N14TEST
+
+```
+Then, one could call the routine,                
+```
+if (t9 .gt. 0.05d0)then
+				  
+!Added by Aishah (rate N14(n,p)C14 from recent publication, 2023.
+
+call N14TEST(t9,rateout)
+v(76) = rateout * RHO * PROTOFAK
+				  
+ELSE IF (t9 .gt. 1.16d0)then
+! *** In the cf88 website c14(p,n)n14 is given from t9 > 0.05_r8
+!      Q68 = -0.626_r8
+!      N14(N,P)C14   Use this rate for higher T9 ( CF88 reverse )
+V(76) = 7.19d+05 * (1.0d0 + 0.361d0*TP12 + 0.502d0 * T9) &
+                       * 3.33d-01 + 3.34d+08/TP12 * dexp(-4.983d0/T9) &
+                       * 3.33d-01
+V(76) = V(76) * rho * PROTOFAK
+else
+v(76) = 0.d0
+
+end if
+
+```
+In a nutshell, look for subroutine N14TEST(t9, rateout) and modify accordingly.
