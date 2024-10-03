@@ -277,7 +277,7 @@ Note : FYI, 'O' means experimental data and '1' means theoretical data (For refe
 This section in vital.F90 is implemented in order to allow for quick ad-hoc rates to be applied to the code, not a permanent addition or compilation.
 Example:
 I have implemented in vital.F90 to include new neutron poison effect in tabular data. 
-Use these equations to convert tabular values,KT to T9 and milibarn to cm3mol-1s-1
+For averaged maxwellian cross section tabular data, use the python code here to simply convert the units for Vital.F90 (KT to T9 and milibarn to cm^3 mol-1 s-1)
 ```
 import numpy as np
 import matplotlib.pyplot as plt
@@ -289,10 +289,10 @@ amu_to_kg = 1.66053906660e-27  # Atomic mass unit to kg
 keV_to_J = 1.60218e-16  # 1 keV in Joules
 mb_to_cm2 = 1e-27       # Conversion from millibarn to cm^2
 
-# Temperature in keV (Tabular value from publication)
+# Temperature in keV (Tabular value from the publication)
 T = np.array([5, 8, 10, 15, 20, 23, 25, 30, 40, 50, 60, 80, 100])  # in keV
 
-# Cross-section in millibarns (Tabular value from publication) (to cm^2) 
+# Cross-section in millibarns (Tabular value from the publication) (to cm^2) 
 cross_section_mb = np.array([3.910, 3.090, 2.760, 2.260, 1.970, 1.840, 1.770, 1.630, 1.470, 1.460, 1.690, 3.140, 5.830])  
 cross_section = cross_section_mb * mb_to_cm2  # Convert to cm^2
 
@@ -357,9 +357,11 @@ integer :: i
 ```
 Then, one could call the routine,                
 ```
+real(r8) :: t9, rateout
+
 if (t9 .gt. 0.05d0)then
 				  
-!Added by Aishah (rate N14(n,p)C14 from recent publication, 2023.
+!Added by Aishah (rate N14(n,p)C14 from recent publication, 2023.)
 
 call N14TEST(t9,rateout)
 v(76) = rateout * RHO * PROTOFAK
