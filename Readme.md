@@ -339,7 +339,7 @@ integer :: i
 				  1.58987e6_r8/)
 
          !     I am interested in performing a logarithmic interpolation, so I pass
-         !     the log of the rate instead of the actual rate.
+         !     the log of the rate instead of the actual rate.'ndim' is the total number of data points.
          do i = 1, ndim
             lograte(i) = log10(rate(i))
          end do
