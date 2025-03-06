@@ -15,7 +15,7 @@ For MPPNP
 
 Ininet 3 isn't working in mppnp, any changes made to the T/F flags will just be overwritten by the original network setup in a rerun, where Vital still has priority.
 Need to manually change T/F flag in the ppn_physics.input file. The network setup at the intersection between the vital network and the full network is regulated from the choice indicated there. So, if you set a reaction F in ppn_physics.input, that will not use as default the vital rate, but the rate coming from other sources.
-
+Update: A working version for Ininet =3 can be found in the Nugrids Gitlab 
 
 1. **Modifying Reaction Rate: Applying Multiplication Factors**
    
